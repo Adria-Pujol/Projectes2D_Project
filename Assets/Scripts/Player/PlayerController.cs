@@ -10,8 +10,6 @@ namespace Player
 
         [Header("Movement")] [SerializeField] private float maxSpeed;
 
-        [SerializeField] private float dashSpeed;
-
         public bool isFacingRight = true;
 
         [Header("Jumping")] [SerializeField] private bool isJumping;
@@ -65,6 +63,11 @@ namespace Player
         private WallChecker _wallChecker;
         private WeaponScript _weaponScript;
 
+        [Header("Dash")] [SerializeField] public float totalDashTime;
+        [SerializeField] public float currentDashTime;
+        [SerializeField] private float dashSpeed;
+        [SerializeField] private float initialDashSpeed;
+
         private void Awake()
         {
             _input = new InputPlayer();
@@ -78,6 +81,8 @@ namespace Player
             _input.Player.SwapWeapon.performed += ctx => SwapWeapon(ctx);
             timer = startTime;
             swapTime = totalSwapTime;
+            dashSpeed = initialDashSpeed;
+            currentDashTime = totalDashTime;
             _body = GetComponent<Rigidbody2D>();
             _groundChecker1 = transform.Find("GroundChecker").GetComponent<GroundChecker>();
             _groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
@@ -284,23 +289,55 @@ namespace Player
             //Dash
             if (isGround && _isDashing)
             {
-                if (_hasDashed) return;
-                if (_body.velocity.x != 0)
+                if (!_hasDashed)
                 {
-                    _body.velocity = new Vector2(_body.velocity.x * dashSpeed, _body.velocity.y);
-                    _hasDashed = true;
-                }
-                else
-                {
-                    if (isFacingRight)
+                    if (_body.velocity.x == 0)
                     {
-                        _body.velocity = new Vector2(dashSpeed, _body.velocity.y);
-                        _hasDashed = true;
+                        if (isFacingRight)
+                        {
+                            if (currentDashTime >= 0)
+                            {
+                                _body.velocity = new Vector2(dashSpeed * 7.5f, _body.velocity.y);
+                                dashSpeed -= Time.deltaTime;
+                                currentDashTime -= 0.25f;
+                            }
+                            else
+                            {
+                                _hasDashed = true;
+                                currentDashTime = totalDashTime;
+                                dashSpeed = initialDashSpeed;
+                            }
+                        }
+                        else
+                        {
+                            if (currentDashTime >= 0)
+                            {
+                                _body.velocity = new Vector2(-dashSpeed * 7.5f, _body.velocity.y);
+                                dashSpeed -= Time.deltaTime;
+                                currentDashTime -= 0.25f;
+                            }
+                            else
+                            {
+                                _hasDashed = true;
+                                currentDashTime = totalDashTime;
+                                dashSpeed = initialDashSpeed;
+                            }
+                        }
                     }
                     else
                     {
-                        _body.velocity = new Vector2(-dashSpeed, _body.velocity.y);
-                        _hasDashed = true;
+                        if (currentDashTime >= 0)
+                        {
+                            _body.velocity = new Vector2(_body.velocity.x, _body.velocity.y) * dashSpeed;
+                            dashSpeed -= Time.deltaTime;
+                            currentDashTime -= 0.25f;
+                        }
+                        else
+                        {
+                            _hasDashed = true;
+                            currentDashTime = totalDashTime;
+                            dashSpeed = initialDashSpeed;
+                        }
                     }
                 }
             }
