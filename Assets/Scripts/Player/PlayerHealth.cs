@@ -39,14 +39,11 @@ namespace Player
                 invulnerableCurrentTime = 0f;
                 canRecieveDmg = false;
                 if (isFacingRight)
-                {
                     _body.AddForce(new Vector2(-knockback * 20, knockback));
-                }
                 else
-                {
                     _body.AddForce(new Vector2(knockback * 20, knockback));
-                }
             }
+
             if (health <= 0) Death();
         }
 
@@ -64,14 +61,9 @@ namespace Player
                 invulnerableCurrentTime = 0f;
                 canRecieveDmg = false;
                 if (isFacingRight)
-                {
-                    
                     _body.AddForce(new Vector2(-knockback * 20, knockback));
-                }
                 else
-                {
                     _body.AddForce(new Vector2(knockback * 20, knockback));
-                }
             }
             else
             {

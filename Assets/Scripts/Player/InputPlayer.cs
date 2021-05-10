@@ -5,11 +5,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
+using Object = UnityEngine.Object;
 
-public class @InputPlayer : IInputActionCollection, IDisposable
+public class InputPlayer : IInputActionCollection, IDisposable
 {
-    public InputActionAsset asset { get; }
-    public @InputPlayer()
+    // Player
+    private readonly InputActionMap m_Player;
+    private readonly InputAction m_Player_Dash;
+    private readonly InputAction m_Player_GrabWall;
+    private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Melee;
+    private readonly InputAction m_Player_MovementLeftRight;
+    private readonly InputAction m_Player_Shoot;
+    private readonly InputAction m_Player_SwapWeapon;
+    private IPlayerActions m_PlayerActionsCallbackInterface;
+    private int m_PlayerSchemeSchemeIndex = -1;
+
+    public InputPlayer()
     {
         asset = InputActionAsset.FromJson(@"{
     ""name"": ""InputPlayer"",
@@ -286,19 +298,32 @@ public class @InputPlayer : IInputActionCollection, IDisposable
     ]
 }");
         // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_MovementLeftRight = m_Player.FindAction("MovementLeftRight", throwIfNotFound: true);
-        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
-        m_Player_Melee = m_Player.FindAction("Melee", throwIfNotFound: true);
-        m_Player_GrabWall = m_Player.FindAction("GrabWall", throwIfNotFound: true);
-        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
-        m_Player_SwapWeapon = m_Player.FindAction("SwapWeapon", throwIfNotFound: true);
+        m_Player = asset.FindActionMap("Player", true);
+        m_Player_MovementLeftRight = m_Player.FindAction("MovementLeftRight", true);
+        m_Player_Jump = m_Player.FindAction("Jump", true);
+        m_Player_Shoot = m_Player.FindAction("Shoot", true);
+        m_Player_Melee = m_Player.FindAction("Melee", true);
+        m_Player_GrabWall = m_Player.FindAction("GrabWall", true);
+        m_Player_Dash = m_Player.FindAction("Dash", true);
+        m_Player_SwapWeapon = m_Player.FindAction("SwapWeapon", true);
+    }
+
+    public InputActionAsset asset { get; }
+    public PlayerActions Player => new PlayerActions(this);
+
+    public InputControlScheme PlayerSchemeScheme
+    {
+        get
+        {
+            if (m_PlayerSchemeSchemeIndex == -1)
+                m_PlayerSchemeSchemeIndex = asset.FindControlSchemeIndex("PlayerScheme");
+            return asset.controlSchemes[m_PlayerSchemeSchemeIndex];
+        }
     }
 
     public void Dispose()
     {
-        UnityEngine.Object.Destroy(asset);
+        Object.Destroy(asset);
     }
 
     public InputBinding? bindingMask
@@ -340,95 +365,100 @@ public class @InputPlayer : IInputActionCollection, IDisposable
         asset.Disable();
     }
 
-    // Player
-    private readonly InputActionMap m_Player;
-    private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_MovementLeftRight;
-    private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_Shoot;
-    private readonly InputAction m_Player_Melee;
-    private readonly InputAction m_Player_GrabWall;
-    private readonly InputAction m_Player_Dash;
-    private readonly InputAction m_Player_SwapWeapon;
     public struct PlayerActions
     {
-        private @InputPlayer m_Wrapper;
-        public PlayerActions(@InputPlayer wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MovementLeftRight => m_Wrapper.m_Player_MovementLeftRight;
-        public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
-        public InputAction @Melee => m_Wrapper.m_Player_Melee;
-        public InputAction @GrabWall => m_Wrapper.m_Player_GrabWall;
-        public InputAction @Dash => m_Wrapper.m_Player_Dash;
-        public InputAction @SwapWeapon => m_Wrapper.m_Player_SwapWeapon;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
+        private readonly InputPlayer m_Wrapper;
+
+        public PlayerActions(InputPlayer wrapper)
+        {
+            m_Wrapper = wrapper;
+        }
+
+        public InputAction MovementLeftRight => m_Wrapper.m_Player_MovementLeftRight;
+        public InputAction Jump => m_Wrapper.m_Player_Jump;
+        public InputAction Shoot => m_Wrapper.m_Player_Shoot;
+        public InputAction Melee => m_Wrapper.m_Player_Melee;
+        public InputAction GrabWall => m_Wrapper.m_Player_GrabWall;
+        public InputAction Dash => m_Wrapper.m_Player_Dash;
+        public InputAction SwapWeapon => m_Wrapper.m_Player_SwapWeapon;
+
+        public InputActionMap Get()
+        {
+            return m_Wrapper.m_Player;
+        }
+
+        public void Enable()
+        {
+            Get().Enable();
+        }
+
+        public void Disable()
+        {
+            Get().Disable();
+        }
+
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
+
+        public static implicit operator InputActionMap(PlayerActions set)
+        {
+            return set.Get();
+        }
+
         public void SetCallbacks(IPlayerActions instance)
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @MovementLeftRight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovementLeftRight;
-                @MovementLeftRight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovementLeftRight;
-                @MovementLeftRight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovementLeftRight;
-                @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
-                @Shoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
-                @Shoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
-                @Melee.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMelee;
-                @Melee.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMelee;
-                @Melee.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMelee;
-                @GrabWall.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabWall;
-                @GrabWall.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabWall;
-                @GrabWall.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabWall;
-                @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                @SwapWeapon.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapWeapon;
-                @SwapWeapon.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapWeapon;
-                @SwapWeapon.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapWeapon;
+                MovementLeftRight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovementLeftRight;
+                MovementLeftRight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovementLeftRight;
+                MovementLeftRight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovementLeftRight;
+                Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                Shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
+                Shoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
+                Shoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
+                Melee.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMelee;
+                Melee.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMelee;
+                Melee.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMelee;
+                GrabWall.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabWall;
+                GrabWall.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabWall;
+                GrabWall.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabWall;
+                Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                SwapWeapon.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapWeapon;
+                SwapWeapon.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapWeapon;
+                SwapWeapon.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwapWeapon;
             }
+
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @MovementLeftRight.started += instance.OnMovementLeftRight;
-                @MovementLeftRight.performed += instance.OnMovementLeftRight;
-                @MovementLeftRight.canceled += instance.OnMovementLeftRight;
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
-                @Shoot.started += instance.OnShoot;
-                @Shoot.performed += instance.OnShoot;
-                @Shoot.canceled += instance.OnShoot;
-                @Melee.started += instance.OnMelee;
-                @Melee.performed += instance.OnMelee;
-                @Melee.canceled += instance.OnMelee;
-                @GrabWall.started += instance.OnGrabWall;
-                @GrabWall.performed += instance.OnGrabWall;
-                @GrabWall.canceled += instance.OnGrabWall;
-                @Dash.started += instance.OnDash;
-                @Dash.performed += instance.OnDash;
-                @Dash.canceled += instance.OnDash;
-                @SwapWeapon.started += instance.OnSwapWeapon;
-                @SwapWeapon.performed += instance.OnSwapWeapon;
-                @SwapWeapon.canceled += instance.OnSwapWeapon;
+                MovementLeftRight.started += instance.OnMovementLeftRight;
+                MovementLeftRight.performed += instance.OnMovementLeftRight;
+                MovementLeftRight.canceled += instance.OnMovementLeftRight;
+                Jump.started += instance.OnJump;
+                Jump.performed += instance.OnJump;
+                Jump.canceled += instance.OnJump;
+                Shoot.started += instance.OnShoot;
+                Shoot.performed += instance.OnShoot;
+                Shoot.canceled += instance.OnShoot;
+                Melee.started += instance.OnMelee;
+                Melee.performed += instance.OnMelee;
+                Melee.canceled += instance.OnMelee;
+                GrabWall.started += instance.OnGrabWall;
+                GrabWall.performed += instance.OnGrabWall;
+                GrabWall.canceled += instance.OnGrabWall;
+                Dash.started += instance.OnDash;
+                Dash.performed += instance.OnDash;
+                Dash.canceled += instance.OnDash;
+                SwapWeapon.started += instance.OnSwapWeapon;
+                SwapWeapon.performed += instance.OnSwapWeapon;
+                SwapWeapon.canceled += instance.OnSwapWeapon;
             }
         }
     }
-    public PlayerActions @Player => new PlayerActions(this);
-    private int m_PlayerSchemeSchemeIndex = -1;
-    public InputControlScheme PlayerSchemeScheme
-    {
-        get
-        {
-            if (m_PlayerSchemeSchemeIndex == -1) m_PlayerSchemeSchemeIndex = asset.FindControlSchemeIndex("PlayerScheme");
-            return asset.controlSchemes[m_PlayerSchemeSchemeIndex];
-        }
-    }
+
     public interface IPlayerActions
     {
         void OnMovementLeftRight(InputAction.CallbackContext context);

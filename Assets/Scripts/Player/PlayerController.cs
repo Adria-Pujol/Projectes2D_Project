@@ -22,17 +22,10 @@ namespace Player
 
         [SerializeField] private float shortJumpMult;
 
-        public float timer;
-        public float startTime;
-        public float jumpRemember;
-        public float jumpRememberTime = 0.1f;
 
         [Header("Wall")] [SerializeField] private float slideSpeed;
 
-        public float wallClimbSpeed;
-        public float jumpWallValX;
         public float jumpWallValY;
-        public float wallTimer;
 
         [Header("Shooting")] [SerializeField] private bool isShooting;
 
@@ -42,6 +35,9 @@ namespace Player
         public float swapTime;
         public float totalSwapTime;
         public float ammunation;
+        public float timer;
+        public float startTime;
+        public bool _resetShooting = true;
 
         [Header("Melee")] [SerializeField] private bool isHitting;
 
@@ -66,7 +62,6 @@ namespace Player
         private bool _isDashing;
         private bool _isTopWall;
         private float _movInputCtx;
-        private bool _resetShooting = true;
         private WallChecker _wallChecker;
         private WeaponScript _weaponScript;
 
@@ -166,6 +161,11 @@ namespace Player
                 _body.gravityScale = shortJumpMult;
 
             //Shooting
+            if (activeWeapon == 0)
+                startTime = 0.05f;
+            else
+                startTime = 0.2f;
+
             if (isShooting && activeWeapon == 0)
             {
                 if (ammunation > 0)
@@ -189,40 +189,7 @@ namespace Player
                     }
                 }
             }
-            else
-            {
-                if (timerReset > 0)
-                {
-                    timerReset -= Time.deltaTime;
-                }
-                else
-                {
-                    _resetShooting = true;
-                    timerReset = 0.2f;
-                }
-
-                timer = startTime;
-            }
-
-            if (isShooting && activeWeapon == 1)
-            {
-                if (_resetShooting)
-                {
-                    _weaponScript.Shoot();
-                    _resetShooting = false;
-                }
-
-                if (timer <= 0)
-                {
-                    _weaponScript.Shoot();
-                    timer = startTime;
-                }
-                else
-                {
-                    timer -= Time.deltaTime;
-                }
-            }
-            else
+            else if (!isShooting && activeWeapon == 0)
             {
                 if (timerReset > 0)
                 {
@@ -232,6 +199,39 @@ namespace Player
                 {
                     _resetShooting = true;
                     timerReset = 0.05f;
+                }
+
+                timer = startTime;
+            }
+
+            if (isShooting && activeWeapon == 1)
+            {
+                if (_resetShooting)
+                {
+                    _resetShooting = false;
+                    _weaponScript.Shoot();
+                }
+
+                if (timer < 0)
+                {
+                    _weaponScript.Shoot();
+                    timer = startTime;
+                }
+                else
+                {
+                    timer -= Time.deltaTime;
+                }
+            }
+            else if (!isShooting && activeWeapon == 1)
+            {
+                if (timerReset > 0)
+                {
+                    timerReset -= Time.deltaTime;
+                }
+                else
+                {
+                    _resetShooting = true;
+                    timerReset = 0.2f;
                 }
 
                 timer = startTime;
@@ -302,7 +302,6 @@ namespace Player
                         _body.velocity = new Vector2(-dashSpeed, _body.velocity.y);
                         _hasDashed = true;
                     }
-                    
                 }
             }
             else
@@ -348,13 +347,8 @@ namespace Player
         private void Jump(InputAction.CallbackContext ctx)
         {
             if (ctx.phase == InputActionPhase.Started)
-            {
                 isJumping = true;
-            }
-            else if (ctx.phase == InputActionPhase.Canceled)
-            {
-                isJumping = false;
-            }
+            else if (ctx.phase == InputActionPhase.Canceled) isJumping = false;
         }
 
         private void Shoot(InputAction.CallbackContext ctx)

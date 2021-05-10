@@ -271,22 +271,18 @@ MonoBehaviour:
   jumpVel: 10
   fallMult: 2
   shortJumpMult: 4
-  timer: 0
-  startTime: 0.25
-  jumpRemember: 0
-  jumpRememberTime: 0.1
   slideSpeed: 100
-  wallClimbSpeed: 20
-  jumpWallValX: 5
   jumpWallValY: 7
-  wallTimer: 0
   isShooting: 0
   timerReset: 0.1
   activeWeapon: 1
   hasSwapped: 0
   swapTime: 0
   totalSwapTime: 0.5
-  ammunation: 20
+  ammunation: 100
+  timer: 0
+  startTime: 0.2
+  _resetShooting: 1
   isHitting: 0
   hasBeenPressed: 0
   isGround: 0
@@ -331,6 +327,7 @@ MonoBehaviour:
   invulnerableCurrentTime: 0
   canRecieveDmg: 0
   respawnPosition: {fileID: 0}
+  isFacingRight: 0
 --- !u!1 &8660466645063709730
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,11 +56,14 @@ namespace Enemies
                 }
                 else
                 {
-                    transform.position = Vector2.MoveTowards(transform.position, new Vector2(_player.position.x, transform.position.y), speed * Time.deltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position,
+                        new Vector2(_player.position.x, transform.position.y), speed * Time.deltaTime);
                 }
             }
             else
+            {
                 Patrol();
+            }
         }
 
         public void OnTriggerEnter2D(Collider2D collision)
