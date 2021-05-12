@@ -166,12 +166,12 @@ namespace Player
                 _body.gravityScale = shortJumpMult;
 
             //Shooting
-            if (activeWeapon == 0)
+            if (activeWeapon == 2)
                 startTime = 0.05f;
             else
                 startTime = 0.2f;
 
-            if (isShooting && activeWeapon == 0)
+            if (isShooting && activeWeapon == 2)
             {
                 if (ammunation > 0)
                 {
@@ -194,7 +194,7 @@ namespace Player
                     }
                 }
             }
-            else if (!isShooting && activeWeapon == 0)
+            else if (!isShooting && activeWeapon == 2)
             {
                 if (timerReset > 0)
                 {
@@ -247,9 +247,9 @@ namespace Player
                 if (!hasSwapped && swapTime < 0)
                 {
                     if (activeWeapon == 1)
-                        activeWeapon = 0;
-                    else
                         activeWeapon++;
+                    else
+                        activeWeapon = 1;
                     hasSwapped = true;
                     swapTime = totalSwapTime;
                 }
