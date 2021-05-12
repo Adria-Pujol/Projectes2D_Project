@@ -264,14 +264,14 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
-  maxSpeed: 7
+  maxSpeed: 30
   isFacingRight: 1
   isJumping: 0
-  jumpVel: 10
-  fallMult: 2
-  shortJumpMult: 4
-  slideSpeed: 100
-  jumpWallValY: 7
+  jumpVel: 50
+  fallMult: 10
+  shortJumpMult: 20
+  slideSpeed: 500
+  jumpWallValY: 25
   isShooting: 0
   timerReset: 0.1
   activeWeapon: 1
