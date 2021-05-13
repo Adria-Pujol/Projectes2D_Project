@@ -437,8 +437,8 @@ namespace Player
             if (!isHitting || hasBeenPressed) return;
             var objTransform = collision.GetComponent<Transform>();
             var rotation = objTransform.rotation;
-            rotation = new Quaternion(rotation.x, rotation.y, 0,
-                0);
+            rotation = new Quaternion(rotation.x, rotation.y, 180,
+                180);
             objTransform.rotation = rotation;
             hasBeenPressed = true;
         }
