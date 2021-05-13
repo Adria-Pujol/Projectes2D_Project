@@ -5,7 +5,7 @@ namespace Enemies
 {
     public class EnemyBullet : MonoBehaviour
     {
-        [SerializeField] private float bulletSpeed = 20f;
+        [SerializeField] private float bulletSpeed =  20f;
 
         [SerializeField] private float bulletDamage = 1f;
 

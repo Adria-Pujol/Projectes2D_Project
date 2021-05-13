@@ -1,6 +1,6 @@
 using UnityEngine;
 using Player;
-
+using System;
 
 namespace Enemies
 {
@@ -112,13 +112,19 @@ namespace Enemies
         private void Shoot()
         {
             Vector2 dist = new Vector2(_player.position.x - firePoint.position.x, _player.position.y - firePoint.position.y);
-            float distRotation = AngleBetweenVector2(dist, new Vector2(0, 0));
-            float fireRotation = firePoint.rotation.eulerAngles.z;
 
-            float finalRotation = distRotation - fireRotation;
-            firePoint.Rotate(new Vector3(0, 0, finalRotation));
+            float distRotation = AngleBetweenVector2(dist, new Vector2(1, 0));
+            distRotation = distRotation * (-1);
+
+            Debug.Log("angle" + Convert.ToString(distRotation));
+
+            firePoint.Rotate(new Vector3(0, 0, distRotation));
+
+            
 
             BulletPooler.instance.SpawnFromPool("EnemyBullet", firePoint.position, firePoint.rotation);
+            firePoint.Rotate(new Vector3(0, 0, 360 - distRotation));
+
         }
 
         private float AngleBetweenVector2(Vector2 vec1, Vector2 vec2)
