@@ -146,7 +146,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f59f1508dca6f45aa424441291aabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 3
+  collectableList:
+  - {fileID: 4945166131919471972, guid: 69eae1d8a591ded418da329266a9f6cc, type: 3}
+  - {fileID: 6289761894430345043, guid: 2e463d9542f1db641b51976ab790c14a, type: 3}
+  - {fileID: 8928945527290128188, guid: 458d469b170e9af41ac8653261ca26b4, type: 3}
+  - {fileID: 5802205837417747313, guid: e3006214ebdd3ff4c8b5b4b39a0bbbfa, type: 3}
+  - {fileID: 934902593265648377, guid: b68bf6a2f798bf2408b05c6534e74890, type: 3}
+  - {fileID: 3607653208248097097, guid: 24b9f81e97293f343858da3d6ec9d3b3, type: 3}
 --- !u!114 &4387036830735832738
 MonoBehaviour:
   m_ObjectHideFlags: 0

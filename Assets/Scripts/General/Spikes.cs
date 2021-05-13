@@ -12,7 +12,14 @@ public class Spikes : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerHealth>().health -= 1;
+            if (collision.GetComponent<PlayerHealth>().health <= 1)
+            {
+                collision.GetComponent<PlayerHealth>().Death();
+            }
+            else
+            {
+                collision.GetComponent<PlayerHealth>().health -= 1;
+            }
             collision.transform.position = respawnPoint.position;
         }
     }

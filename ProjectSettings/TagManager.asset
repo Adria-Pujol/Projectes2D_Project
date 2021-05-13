@@ -10,6 +10,8 @@ TagManager:
   - Object
   - Wall
   - Limit
+  - Spike
+  - Collectable
   layers:
   - Default
   - TransparentFX

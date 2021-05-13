@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Weapons;
@@ -24,6 +25,8 @@ namespace Player
         [Header("Wall")] [SerializeField] private float slideSpeed;
 
         public float jumpWallValY;
+        public float fallTimer;
+        public float initialFallTimer;
 
         [Header("Shooting")] [SerializeField] private bool isShooting;
 
@@ -47,6 +50,9 @@ namespace Player
         public bool isShifting;
         public bool isDead;
         public bool isSwapping;
+        public bool isRightGround;
+        public bool isSpike;
+        public bool isInObject;
 
         [Header("Confusion State")] public bool confusionState;
 
@@ -59,7 +65,7 @@ namespace Player
         private InputPlayer _input;
         private bool _isDashing;
         private bool _isTopWall;
-        private float _movInputCtx;
+        public float _movInputCtx;
         private WallChecker _wallChecker;
         private WeaponScript _weaponScript;
 
@@ -67,6 +73,8 @@ namespace Player
         [SerializeField] public float currentDashTime;
         [SerializeField] private float dashSpeed;
         [SerializeField] private float initialDashSpeed;
+
+        [SerializeField] public int collectables;
 
         private void Awake()
         {
@@ -83,6 +91,7 @@ namespace Player
             swapTime = totalSwapTime;
             dashSpeed = initialDashSpeed;
             currentDashTime = totalDashTime;
+            fallTimer = initialFallTimer;
             _body = GetComponent<Rigidbody2D>();
             _groundChecker1 = transform.Find("GroundChecker").GetComponent<GroundChecker>();
             _groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
@@ -98,8 +107,46 @@ namespace Player
             _isTopWall = _groundChecker.isTopWalled;
             //Checking if player is in Wall
             isWall = _wallChecker.isWall;
+            //Checking if player is hitting a Ground/Platform
+            isRightGround = _wallChecker.isRightGround;
+            //Checking if player fall into Spike
+            isSpike = _groundChecker1.isSpike;
+            //Checking if player is in Object;
+            isInObject = _groundChecker1.isInObject;
 
             //Movement
+            if (isRightGround && !isWall && _movInputCtx != 0 && !isInObject)
+            {
+                _body.velocity = new Vector2(0, -70);
+            }
+
+            if (!isWall && !isGround && !_isTopWall)
+            {
+                if (fallTimer > 0)
+                {
+                    fallTimer -= Time.deltaTime;
+                }
+            }
+            if (isSpike)
+            {
+                fallTimer = initialFallTimer;
+            }
+            else
+            {
+                if(isGround || _isTopWall || isInObject)
+                {
+                    if (fallTimer <= 0)
+                    {
+                        GetComponent<PlayerHealth>().health -= 1;
+                        if (GetComponent<PlayerHealth>().health == 0)
+                        {
+                            GetComponent<PlayerHealth>().Death();
+                        }
+                    }
+                    fallTimer = initialFallTimer;
+                }
+            }
+            
             if (!isWall)
             {
                 if (confusionState)
@@ -158,7 +205,7 @@ namespace Player
             }
 
             //Jumping
-            if (isGround && isJumping || _isTopWall && isJumping)
+            if (isGround && isJumping || _isTopWall && isJumping || isInObject && isJumping)
                 _body.velocity = new Vector2(_body.velocity.x, jumpVel);
             if (isJumping && _body.velocity.y > 0)
                 _body.gravityScale = fallMult;
@@ -355,6 +402,15 @@ namespace Player
         private void OnDisable()
         {
             _input.Disable();
+        }
+
+        public void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Collectable"))
+            {
+                collectables += 1;
+                collision.GetComponent<Collectable>().Collected();
+            }
         }
 
         public void OnTriggerExit2D(Collider2D collision)

@@ -68,6 +68,7 @@ namespace Enemies
                 else
                 {
                     gameObject.SetActive(false);
+                    collision.GetComponent<ObjectHP>().takeDamage(bulletDamage);
                     _timerCollision = timeAliveFromCollision;
                 }
             }

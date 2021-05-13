@@ -38,10 +38,13 @@ namespace Player
                 health -= 1;
                 invulnerableCurrentTime = 0f;
                 canRecieveDmg = false;
-                if (isFacingRight)
-                    _body.AddForce(new Vector2(-knockback * 20, knockback));
+                Vector2 direction = collision.transform.position - transform.position;
+                direction.y = 0;
+                /*if (isFacingRight)
+                    _body.AddForce(new Vector2(transform.position.x * knockback, 0), ForceMode2D.Impulse);
                 else
-                    _body.AddForce(new Vector2(knockback * 20, knockback));
+                    _body.AddForce(new Vector2(transform.position.x * knockback, 0), ForceMode2D.Impulse);*/
+                _body.AddForce(direction.normalized * knockback, ForceMode2D.Impulse);
             }
 
             if (health <= 0) Death();
@@ -61,9 +64,14 @@ namespace Player
                 invulnerableCurrentTime = 0f;
                 canRecieveDmg = false;
                 if (isFacingRight)
-                    _body.AddForce(new Vector2(-knockback * 20, knockback));
+                {
+                    _body.AddForce(new Vector2(transform.position.x * knockback, 0), ForceMode2D.Impulse);
+                }
                 else
-                    _body.AddForce(new Vector2(knockback * 20, knockback));
+                {
+                    _body.AddForce(new Vector2(transform.position.x * knockback, 0), ForceMode2D.Impulse);
+                }
+                    
             }
             else
             {
@@ -85,7 +93,7 @@ namespace Player
             if (health <= 0) Death();
         }
 
-        private void Death()
+        public void Death()
         {
             gameObject.transform.position = respawnPosition.position;
             gameObject.GetComponent<PlayerController>().isDead = true;

@@ -1857,6 +1857,10 @@ PrefabInstance:
       propertyPath: respawnPosition
       value: 
       objectReference: {fileID: 1037309528}
+    - target: {fileID: 6110184999985409410, guid: 2682f50dbcf14b444a056028508cf931, type: 3}
+      propertyPath: knockback
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7183049525195370735, guid: 2682f50dbcf14b444a056028508cf931, type: 3}
       propertyPath: dashSpeed
       value: 10

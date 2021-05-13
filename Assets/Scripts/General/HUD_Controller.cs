@@ -10,6 +10,7 @@ public class HUD_Controller : MonoBehaviour
     private TextMeshProUGUI ammunation;
     private TextMeshProUGUI totalAmmunation;
     private TextMeshProUGUI weapon;
+    private TextMeshProUGUI collectables;
     GameObject player;
 
     private bool isAmmunationSet = false;
@@ -22,6 +23,7 @@ public class HUD_Controller : MonoBehaviour
         weapon = gameObject.transform.Find("HUD").Find("Weapon").GetComponent<TextMeshProUGUI>();
         ammunation = gameObject.transform.Find("HUD").Find("Ammunation").GetComponent<TextMeshProUGUI>();
         totalAmmunation = gameObject.transform.Find("HUD").Find("TotalAmmunation").GetComponent<TextMeshProUGUI>();
+        collectables = gameObject.transform.Find("HUD").Find("Collected").GetComponent<TextMeshProUGUI>();
         isAmmunationSet = false;
     }
 
@@ -33,8 +35,9 @@ public class HUD_Controller : MonoBehaviour
             totalAmmunation.text = player.GetComponent<PlayerController>().ammunation.ToString();
             isAmmunationSet = true;
         }        
-        hp.text = "Health: " + player.GetComponent<PlayerHealth>().health.ToString();
-        weapon.text = "Weapon: " + player.GetComponent<PlayerController>().activeWeapon.ToString();
+        hp.text = "Health: " + player.GetComponent<PlayerHealth>().health;
+        weapon.text = "Weapon: " + player.GetComponent<PlayerController>().activeWeapon;
         ammunation.text = player.GetComponent<PlayerController>().ammunation.ToString();
+        collectables.text = "Collected: " + player.GetComponent<PlayerController>().collectables;
     }
 }
