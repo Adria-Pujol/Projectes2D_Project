@@ -74,6 +74,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   isWall: 0
+  isRightGround: 0
 --- !u!1 &6794938395116442877
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,8 +119,8 @@ GameObject:
   - component: {fileID: 9130113226339810163}
   - component: {fileID: 1272006245416237775}
   - component: {fileID: 7183049525195370735}
-  - component: {fileID: 2851795789070740103}
   - component: {fileID: 6110184999985409410}
+  - component: {fileID: 3414130929122219339}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -272,6 +273,8 @@ MonoBehaviour:
   shortJumpMult: 20
   slideSpeed: 500
   jumpWallValY: 25
+  fallTimer: 0
+  initialFallTimer: 0
   isShooting: 0
   timerReset: 0.1
   activeWeapon: 1
@@ -289,29 +292,18 @@ MonoBehaviour:
   isShifting: 0
   isDead: 0
   isSwapping: 0
+  isRightGround: 0
+  isSpike: 0
+  isInObject: 0
   confusionState: 0
   confusionTimer: 0
   confusionTotalTime: 2
+  _movInputCtx: 0
   totalDashTime: 1
   currentDashTime: 0
   dashSpeed: 0
   initialDashSpeed: 5
---- !u!70 &2851795789070740103
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8660466643929717836}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.01660683}
-  m_Size: {x: 5.2190285, y: 5.219029}
-  m_Direction: 0
+  collectables: 0
 --- !u!114 &6110184999985409410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,6 +323,32 @@ MonoBehaviour:
   canRecieveDmg: 0
   respawnPosition: {fileID: 0}
   isFacingRight: 0
+--- !u!61 &3414130929122219339
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8660466643929717836}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.08432436, y: -0.015982032}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.51, y: 5.51}
+    newSize: {x: 5.51, y: 5.51}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.554262, y: 4.7428465}
+  m_EdgeRadius: 0
 --- !u!1 &8660466645063709730
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,6 +421,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrounded: 0
   isTopWalled: 0
+  isSpike: 0
+  isInObject: 0
 --- !u!1 &8660466645087070267
 GameObject:
   m_ObjectHideFlags: 0
