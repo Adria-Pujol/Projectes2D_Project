@@ -38,13 +38,13 @@ namespace Player
                 health -= 1;
                 invulnerableCurrentTime = 0f;
                 canRecieveDmg = false;
-                Vector2 direction = collision.transform.position - transform.position;
-                direction.y = 0;
-                /*if (isFacingRight)
-                    _body.AddForce(new Vector2(transform.position.x * knockback, 0), ForceMode2D.Impulse);
+                if (isFacingRight)
+                {
+                    _body.AddForce(new Vector2(-knockback * 20, knockback));
+                    Debug.Log("Cum");
+                }
                 else
-                    _body.AddForce(new Vector2(transform.position.x * knockback, 0), ForceMode2D.Impulse);*/
-                _body.AddForce(direction.normalized * knockback, ForceMode2D.Impulse);
+                    _body.AddForce(new Vector2(knockback * 20, knockback));
             }
 
             if (health <= 0) Death();
@@ -65,13 +65,12 @@ namespace Player
                 canRecieveDmg = false;
                 if (isFacingRight)
                 {
-                    _body.AddForce(new Vector2(transform.position.x * knockback, 0), ForceMode2D.Impulse);
+                    _body.AddForce(new Vector2(-knockback * 20, knockback));
                 }
                 else
                 {
-                    _body.AddForce(new Vector2(transform.position.x * knockback, 0), ForceMode2D.Impulse);
+                    _body.AddForce(new Vector2(knockback * 20, knockback));
                 }
-                    
             }
             else
             {
@@ -95,9 +94,9 @@ namespace Player
 
         public void Death()
         {
-            gameObject.transform.position = respawnPosition.position;
             gameObject.GetComponent<PlayerController>().isDead = true;
             health = 7f;
+            gameObject.transform.position = respawnPosition.position;
         }
     }
 }

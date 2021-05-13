@@ -6,7 +6,7 @@ namespace Enemies
     public class Enemy : MonoBehaviour
     {
         public float health = 100f;
-        public List<GameObject> collectableList;
+        public GameObject bullets;
 
         public void TakeDamage(float dmg)
         {
@@ -19,8 +19,7 @@ namespace Enemies
 
         public void Death()
         {
-            int randomCollectable = Random.Range(0, collectableList.Count);
-            Instantiate(collectableList[randomCollectable], transform.position, transform.rotation);
+            Instantiate(bullets, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

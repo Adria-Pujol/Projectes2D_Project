@@ -9,11 +9,13 @@ public class HUD_Controller : MonoBehaviour
     private TextMeshProUGUI hp;
     private TextMeshProUGUI ammunation;
     private TextMeshProUGUI totalAmmunation;
+    private TextMeshProUGUI bar;
     private TextMeshProUGUI weapon;
     private TextMeshProUGUI collectables;
     GameObject player;
 
     private bool isAmmunationSet = false;
+    private float totalAmmunationNum;
 
 
     void Awake()
@@ -24,6 +26,7 @@ public class HUD_Controller : MonoBehaviour
         ammunation = gameObject.transform.Find("HUD").Find("Ammunation").GetComponent<TextMeshProUGUI>();
         totalAmmunation = gameObject.transform.Find("HUD").Find("TotalAmmunation").GetComponent<TextMeshProUGUI>();
         collectables = gameObject.transform.Find("HUD").Find("Collected").GetComponent<TextMeshProUGUI>();
+        bar = gameObject.transform.Find("HUD").Find("Bar").GetComponent<TextMeshProUGUI>();
         isAmmunationSet = false;
     }
 
@@ -33,11 +36,23 @@ public class HUD_Controller : MonoBehaviour
         if (!isAmmunationSet)
         {
             totalAmmunation.text = player.GetComponent<PlayerController>().ammunation.ToString();
+            totalAmmunationNum = player.GetComponent<PlayerController>().ammunation;
             isAmmunationSet = true;
         }        
         hp.text = "Health: " + player.GetComponent<PlayerHealth>().health;
         weapon.text = "Weapon: " + player.GetComponent<PlayerController>().activeWeapon;
-        ammunation.text = player.GetComponent<PlayerController>().ammunation.ToString();
+        if (player.GetComponent<PlayerController>().activeWeapon == 1)
+        {
+            ammunation.text = "∞";
+            totalAmmunation.text = "";
+            bar.text = "";
+        }
+        else
+        {
+            ammunation.text = player.GetComponent<PlayerController>().ammunation.ToString();
+            totalAmmunation.text = totalAmmunationNum.ToString();
+            bar.text = "/";
+        }
         collectables.text = "Collected: " + player.GetComponent<PlayerController>().collectables;
     }
 }

@@ -19,8 +19,8 @@ public class Spikes : MonoBehaviour
             else
             {
                 collision.GetComponent<PlayerHealth>().health -= 1;
+                collision.transform.position = respawnPoint.position;
             }
-            collision.transform.position = respawnPoint.position;
         }
     }
 }

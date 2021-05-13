@@ -246,7 +246,7 @@ MonoBehaviour:
   poolsList:
   - nameOfObjPool: Bullet
     prefab: {fileID: 2410756515044996789, guid: 368331c2c1cdbda418c50574596c13ba, type: 3}
-    poolSize: 20
+    poolSize: 50
   - nameOfObjPool: EnemyBullet
     prefab: {fileID: 6474345749538438294, guid: 2b9a051026974804f941b695a3455371, type: 3}
     poolSize: 20
@@ -265,7 +265,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
-  maxSpeed: 30
+  maxSpeed: 40
   isFacingRight: 1
   isJumping: 0
   jumpVel: 50
@@ -274,7 +274,7 @@ MonoBehaviour:
   slideSpeed: 500
   jumpWallValY: 25
   fallTimer: 0
-  initialFallTimer: 0
+  initialFallTimer: 1.5
   isShooting: 0
   timerReset: 0.1
   activeWeapon: 1

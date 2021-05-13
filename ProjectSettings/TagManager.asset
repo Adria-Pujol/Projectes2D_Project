@@ -12,6 +12,8 @@ TagManager:
   - Limit
   - Spike
   - Collectable
+  - Platform
+  - Bullets
   layers:
   - Default
   - TransparentFX

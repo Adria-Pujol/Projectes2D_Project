@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Weapons;
+using Random = UnityEngine.Random;
 
 namespace Player
 {
@@ -117,7 +118,7 @@ namespace Player
             //Movement
             if (isRightGround && !isWall && _movInputCtx != 0 && !isInObject)
             {
-                _body.velocity = new Vector2(0, -70);
+                _body.velocity = new Vector2(0, -50);
             }
 
             if (!isWall && !isGround && !_isTopWall)
@@ -410,6 +411,17 @@ namespace Player
             {
                 collectables += 1;
                 collision.GetComponent<Collectable>().Collected();
+            }
+
+            if (collision.CompareTag("Bullets"))
+            {
+                float randomCollectable = Random.Range(0, 20);
+                ammunation += randomCollectable;
+                if (ammunation > 100)
+                {
+                    ammunation = 100;
+                }
+                Destroy(collision.gameObject);
             }
         }
 

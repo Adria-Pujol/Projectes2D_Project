@@ -12,6 +12,7 @@ namespace Player
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Ground")) isGrounded = true;
+            if (collision.CompareTag("Platform")) isGrounded = true;
             if (collision.CompareTag("Spike")) isSpike = true;
             if (collision.CompareTag("Wall")) isTopWalled = true;
             if (collision.CompareTag("Object")) isInObject = true;
