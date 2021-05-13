@@ -58,6 +58,7 @@ namespace Enemies
                 {
                     transform.position = Vector2.MoveTowards(transform.position,
                         new Vector2(_player.position.x, transform.position.y), speed * Time.deltaTime);
+                    
                 }
             }
             else
