@@ -1,4 +1,6 @@
 using UnityEngine;
+using Player;
+
 
 namespace Enemies
 {
@@ -13,7 +15,8 @@ namespace Enemies
         [SerializeField] private bool isObject;
 
         [SerializeField] private bool isEnemy;
-        public Transform shootingPoint;
+
+        [SerializeField] public float timer;
 
         private Rigidbody2D _body;
 
@@ -22,9 +25,14 @@ namespace Enemies
         private bool _isFacingRight = true;
         private Transform _player;
 
+        public float timeBetweenShoots;
+
+        public Transform firePoint;
+
         public void Awake()
         {
             _body = GetComponent<Rigidbody2D>();
+            timer = timeBetweenShoots;
         }
 
         private void Start()
@@ -43,10 +51,37 @@ namespace Enemies
             isObject = _generalChecker.isObject;
             //Checking if enemy is colliding to an Enemy
             isEnemy = _generalChecker.isEnemy;
+
             if (_player)
-                _body.velocity = new Vector2(0, _body.velocity.y);
+            {
+                if (isWall || !isGround || isObject || isEnemy)
+                {
+                    Flip();
+                    var velocity = _body.velocity;
+                    velocity =
+                        _isFacingRight ? new Vector2(speed, velocity.y) : new Vector2(-speed, velocity.y);
+                    _body.velocity = velocity;
+                    _player = null;
+                }
+                else
+                {
+
+                    _body.velocity = new Vector2(0, _body.velocity.y);
+                    if (timer < 0)
+                    {
+                        Shoot();
+                        timer = timeBetweenShoots;
+                    }
+                    else
+                    {
+                        timer -= Time.deltaTime;
+                    }
+                }
+            }
             else
+            {
                 Patrol();
+            }
         }
 
         public void OnTriggerEnter2D(Collider2D collision)
@@ -72,6 +107,25 @@ namespace Enemies
         {
             _isFacingRight = !_isFacingRight;
             transform.rotation = Quaternion.Euler(0, _isFacingRight ? 0 : 180, 0);
+        }
+
+        private void Shoot()
+        {
+            Vector2 dist = new Vector2(_player.position.x - firePoint.position.x, _player.position.y - firePoint.position.y);
+            float distRotation = AngleBetweenVector2(dist, new Vector2(0, 0));
+            float fireRotation = firePoint.rotation.eulerAngles.z;
+
+            float finalRotation = distRotation - fireRotation;
+            firePoint.Rotate(new Vector3(0, 0, finalRotation));
+
+            BulletPooler.instance.SpawnFromPool("EnemyBullet", firePoint.position, firePoint.rotation);
+        }
+
+        private float AngleBetweenVector2(Vector2 vec1, Vector2 vec2)
+        {
+            Vector2 diference = vec2 - vec1;
+            float sign = (vec2.y < vec1.y) ? -1.0f : 1.0f;
+            return Vector2.Angle(Vector2.right, diference) * sign;
         }
     }
 }
