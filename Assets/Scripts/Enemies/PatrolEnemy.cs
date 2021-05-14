@@ -56,8 +56,17 @@ namespace Enemies
                 }
                 else
                 {
+                    Vector2 dist = new Vector2(_player.position.x - transform.position.x, _player.position.y - transform.position.y);
+                    if (dist.x < 0 && _isFacingRight)
+                    {
+                        Flip();
+                    }
+                    else if (dist.x > 0 && !_isFacingRight)
+                    {
+                        Flip();
+                    }
                     transform.position = Vector2.MoveTowards(transform.position,
-                        new Vector2(_player.position.x, transform.position.y), speed * Time.deltaTime);
+                        new Vector2(_player.position.x, transform.position.y), speed * Time.deltaTime * 2);
                     
                 }
             }
@@ -84,6 +93,7 @@ namespace Enemies
             var velocity = _body.velocity;
             velocity = _isFacingRight ? new Vector2(speed, velocity.y) : new Vector2(-speed, velocity.y);
             _body.velocity = velocity;
+
         }
 
         private void Flip()

@@ -66,7 +66,6 @@ namespace Enemies
                 }
                 else
                 {
-
                     _body.velocity = new Vector2(0, _body.velocity.y);
                     if (timer < 0)
                     {
@@ -90,6 +89,11 @@ namespace Enemies
             if (collision.CompareTag("Player")) _player = collision.gameObject.transform;
         }
 
+        public void OnTriggerStay2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Player")) _player = collision.gameObject.transform;
+        }
+
         public void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.gameObject.CompareTag("Player")) _player = null;
@@ -108,7 +112,8 @@ namespace Enemies
         {
             _isFacingRight = !_isFacingRight;
             transform.rotation = Quaternion.Euler(0, _isFacingRight ? 0 : 180, 0);
-            firePoint.rotation = Quaternion.Euler(0, 0, _isFacingRight ? distRotation - 180 : 180 - distRotation);
+            firePoint.rotation = Quaternion.Euler(0, 0, 180 - distRotation);
+            Debug.Log(firePoint.rotation);
         }
 
         private void Shoot()
@@ -118,6 +123,10 @@ namespace Enemies
             distRotation = AngleBetweenVector2(dist, new Vector2(1, 0));
 
             if (dist.x < 0 && _isFacingRight)
+            {
+                Flip();
+            }
+            else if (dist.x > 0 && !_isFacingRight)
             {
                 Flip();
             }
