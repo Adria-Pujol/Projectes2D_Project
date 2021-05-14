@@ -54,7 +54,6 @@ namespace Enemies
                     playerHp.TakeDamage(bulletDamage);
                     player.MakeConfusion();
                 }
-
                 gameObject.SetActive(false);
             }
 

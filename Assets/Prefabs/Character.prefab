@@ -250,7 +250,7 @@ MonoBehaviour:
     poolSize: 50
   - nameOfObjPool: EnemyBullet
     prefab: {fileID: 6474345749538438294, guid: 2b9a051026974804f941b695a3455371, type: 3}
-    poolSize: 20
+    poolSize: 100
 --- !u!114 &7183049525195370735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +298,7 @@ MonoBehaviour:
   isInObject: 0
   confusionState: 0
   confusionTimer: 0
-  confusionTotalTime: 2
+  confusionTotalTime: 1.5
   _body: {fileID: 0}
   _movInputCtx: 0
   totalDashTime: 1

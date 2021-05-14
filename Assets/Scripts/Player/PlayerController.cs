@@ -164,6 +164,7 @@ namespace Player
                     {
                         confusionState = false;
                         confusionTimer = 0;
+                        isDead = false;
                     }
 
                     if (confusionTimer <= 0)
@@ -222,8 +223,8 @@ namespace Player
             //Jumping
             if (isGround && isJumping || _isTopWall && isJumping || isInObject && isJumping)
             {
-                _body.velocity = new Vector2(_body.velocity.x, jumpVel);
                 animator.SetBool("Jump", true);
+                _body.velocity = new Vector2(_body.velocity.x, jumpVel);
             }
             if (isJumping && _body.velocity.y > 0)
                 _body.gravityScale = fallMult;
@@ -232,10 +233,6 @@ namespace Player
             if (!isJumping && isGround)
             {
                 animator.SetBool("Jump", false);
-            }
-            else
-            {
-                animator.SetBool("ShortJump", false);
             }
 
             //Shooting
