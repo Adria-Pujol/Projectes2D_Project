@@ -27,9 +27,15 @@ namespace Player
         {
             isFacingRight = gameObject.GetComponent<PlayerController>().isFacingRight;
             if (invulnerableCurrentTime < invulnerableTotalTime)
+            {
                 invulnerableCurrentTime += Time.deltaTime;
+                //Physics2D.IgnoreCollision(gameObject.GetComponent<PolygonCollider2D>(), GameObject.FindWithTag("Enemy").GetComponent<BoxCollider2D>());
+            }
             else
+            {
                 canRecieveDmg = true;
+            }
+                
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
