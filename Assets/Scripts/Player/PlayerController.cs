@@ -358,7 +358,7 @@ namespace Player
                 }
             }
 
-            if (!_isDashing)
+            if (!_isDashing || _hasDashed)
             {
                 animator.SetBool("Dash", false);
             }
@@ -375,7 +375,7 @@ namespace Player
                         {
                             if (currentDashTime >= 0)
                             {
-                                _body.velocity = new Vector2(dashSpeed * 30f, _body.velocity.y);
+                                _body.velocity = new Vector2(dashSpeed * 50f, _body.velocity.y);
                                 dashSpeed -= Time.deltaTime;
                                 currentDashTime -= 0.25f;
                             }
@@ -390,7 +390,7 @@ namespace Player
                         {
                             if (currentDashTime >= 0)
                             {
-                                _body.velocity = new Vector2(-dashSpeed * 30f, _body.velocity.y);
+                                _body.velocity = new Vector2(-dashSpeed * 40f, _body.velocity.y);
                                 dashSpeed -= Time.deltaTime;
                                 currentDashTime -= 0.25f;
                             }

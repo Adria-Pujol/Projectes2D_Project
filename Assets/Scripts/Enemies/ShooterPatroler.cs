@@ -113,7 +113,6 @@ namespace Enemies
             _isFacingRight = !_isFacingRight;
             transform.rotation = Quaternion.Euler(0, _isFacingRight ? 0 : 180, 0);
             firePoint.rotation = Quaternion.identity;
-            Debug.Log(firePoint.rotation);
         }
 
         private void Shoot()
@@ -121,6 +120,7 @@ namespace Enemies
             Vector2 dist = new Vector2(_player.position.x - firePoint.position.x, _player.position.y - firePoint.position.y);
 
             distRotation = AngleBetweenVector2(dist, new Vector2(1, 0));
+            distRotation += 180;
 
             if (dist.x < 0 && _isFacingRight)
             {

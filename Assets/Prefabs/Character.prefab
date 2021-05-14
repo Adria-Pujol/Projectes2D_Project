@@ -304,7 +304,7 @@ MonoBehaviour:
   totalDashTime: 1
   currentDashTime: 0
   dashSpeed: 0
-  initialDashSpeed: 5
+  initialDashSpeed: 3
   _isDashing: 0
   collectables: 0
   animator: {fileID: 0}
