@@ -112,7 +112,7 @@ namespace Enemies
         {
             _isFacingRight = !_isFacingRight;
             transform.rotation = Quaternion.Euler(0, _isFacingRight ? 0 : 180, 0);
-            firePoint.rotation = Quaternion.Euler(0, 0, 180 - distRotation);
+            firePoint.rotation = Quaternion.identity;
             Debug.Log(firePoint.rotation);
         }
 
@@ -131,10 +131,10 @@ namespace Enemies
                 Flip();
             }
 
-            firePoint.Rotate(new Vector3(0, 0, distRotation));
+            firePoint.rotation = Quaternion.Euler(new Vector3(0, 0, distRotation));
 
             BulletPooler.instance.SpawnFromPool("EnemyBullet", firePoint.position, firePoint.rotation);
-            firePoint.Rotate(new Vector3(0, 0, 360 - distRotation));
+            firePoint.rotation = Quaternion.Euler(new Vector3(0, 0, 360 - distRotation));
         }
 
         private float AngleBetweenVector2(Vector2 vec1, Vector2 vec2)
