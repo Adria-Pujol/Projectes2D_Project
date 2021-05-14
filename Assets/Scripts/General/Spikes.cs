@@ -14,6 +14,7 @@ public class Spikes : MonoBehaviour
         {
             if (collision.GetComponent<PlayerHealth>().health <= 1)
             {
+                collision.GetComponent<PlayerHealth>().health -= 1;
                 collision.GetComponent<PlayerHealth>().Death();
             }
             else

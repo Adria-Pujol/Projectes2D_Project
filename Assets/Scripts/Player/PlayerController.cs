@@ -14,7 +14,7 @@ namespace Player
 
         public bool isFacingRight = true;
 
-        [Header("Jumping")] [SerializeField] private bool isJumping;
+        [Header("Jumping")] [SerializeField] public bool isJumping;
 
         [SerializeField] private float jumpVel;
 
@@ -29,7 +29,7 @@ namespace Player
         public float fallTimer;
         public float initialFallTimer;
 
-        [Header("Shooting")] [SerializeField] private bool isShooting;
+        [Header("Shooting")] [SerializeField] public bool isShooting;
 
         public float timerReset = 0.2f;
         public int activeWeapon = 1;
@@ -59,12 +59,11 @@ namespace Player
 
         public float confusionTimer;
         public float confusionTotalTime;
-        private Rigidbody2D _body;
+        public Rigidbody2D _body;
         private GroundChecker _groundChecker;
         private GroundChecker _groundChecker1;
         private bool _hasDashed;
-        private InputPlayer _input;
-        private bool _isDashing;
+        public InputPlayer _input;
         private bool _isTopWall;
         public float _movInputCtx;
         private WallChecker _wallChecker;
@@ -74,8 +73,11 @@ namespace Player
         [SerializeField] public float currentDashTime;
         [SerializeField] private float dashSpeed;
         [SerializeField] private float initialDashSpeed;
+        public bool _isDashing;
 
         [SerializeField] public int collectables;
+
+        [Header("Animation")] [SerializeField] public Animator animator;
 
         private void Awake()
         {
@@ -148,6 +150,12 @@ namespace Player
                 }
             }
             
+            if (GetComponent<PlayerHealth>().health == 0)
+            {
+                animator.SetBool("Die", true);
+                GetComponent<PlayerHealth>().Death();
+            }
+            
             if (!isWall)
             {
                 if (confusionState)
@@ -167,16 +175,19 @@ namespace Player
                         if (_movInputCtx == 0)
                         {
                             _body.velocity = new Vector2(0, _body.velocity.y);
+                            animator.SetFloat("Walk", 0);
                         }
                         else if (_movInputCtx < 0)
                         {
                             if (!isFacingRight) Flip();
+                            animator.SetFloat("Walk", maxSpeed);
                             isFacingRight = true;
                             _body.velocity = new Vector2(maxSpeed, _body.velocity.y);
                         }
                         else
                         {
                             if (isFacingRight) Flip();
+                            animator.SetFloat("Walk", maxSpeed);
                             isFacingRight = false;
                             _body.velocity = new Vector2(-maxSpeed, _body.velocity.y);
                         }
@@ -189,29 +200,43 @@ namespace Player
                     if (_movInputCtx == 0)
                     {
                         _body.velocity = new Vector2(0, _body.velocity.y);
+                        animator.SetFloat("Walk", 0);
                     }
                     else if (_movInputCtx < 0)
                     {
                         if (isFacingRight) Flip();
                         isFacingRight = false;
                         _body.velocity = new Vector2(-maxSpeed, _body.velocity.y);
+                        animator.SetFloat("Walk", maxSpeed);
                     }
                     else
                     {
                         if (!isFacingRight) Flip();
                         isFacingRight = true;
                         _body.velocity = new Vector2(maxSpeed, _body.velocity.y);
+                        animator.SetFloat("Walk", maxSpeed);
                     }
                 }
             }
 
             //Jumping
             if (isGround && isJumping || _isTopWall && isJumping || isInObject && isJumping)
+            {
                 _body.velocity = new Vector2(_body.velocity.x, jumpVel);
+                animator.SetBool("Jump", true);
+            }
             if (isJumping && _body.velocity.y > 0)
                 _body.gravityScale = fallMult;
             else
                 _body.gravityScale = shortJumpMult;
+            if (!isJumping && isGround)
+            {
+                animator.SetBool("Jump", false);
+            }
+            else
+            {
+                animator.SetBool("ShortJump", false);
+            }
 
             //Shooting
             if (activeWeapon == 2)
@@ -329,14 +354,19 @@ namespace Player
                         _body.velocity = new Vector2(_body.velocity.x, 0);
                         _body.gravityScale = 0;
                     }
-
                     break;
                 }
+            }
+
+            if (!_isDashing)
+            {
+                animator.SetBool("Dash", false);
             }
 
             //Dash
             if (isGround && _isDashing)
             {
+                animator.SetBool("Dash", true);
                 if (!_hasDashed)
                 {
                     if (_body.velocity.x == 0)
@@ -345,7 +375,7 @@ namespace Player
                         {
                             if (currentDashTime >= 0)
                             {
-                                _body.velocity = new Vector2(dashSpeed * 7.5f, _body.velocity.y);
+                                _body.velocity = new Vector2(dashSpeed * 30f, _body.velocity.y);
                                 dashSpeed -= Time.deltaTime;
                                 currentDashTime -= 0.25f;
                             }
@@ -360,7 +390,7 @@ namespace Player
                         {
                             if (currentDashTime >= 0)
                             {
-                                _body.velocity = new Vector2(-dashSpeed * 7.5f, _body.velocity.y);
+                                _body.velocity = new Vector2(-dashSpeed * 30f, _body.velocity.y);
                                 dashSpeed -= Time.deltaTime;
                                 currentDashTime -= 0.25f;
                             }

@@ -9,7 +9,6 @@ public class ObjectHP : MonoBehaviour
     public void takeDamage(float damage)
     {
         health -= damage;
-        Debug.Log(health);
         if (health <= 0)
         {
             Destroy(gameObject);

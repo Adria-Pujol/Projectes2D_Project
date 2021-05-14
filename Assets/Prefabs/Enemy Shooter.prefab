@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 642228870750850085}
   - component: {fileID: 1802864447150710136}
   m_Layer: 0
-  m_Name: Enemy Shooter 1
+  m_Name: Enemy Shooter
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,7 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f59f1508dca6f45aa424441291aabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 3
+  bullets: {fileID: 3560569161301933581, guid: d11d5260f43e12b4cba18cdfa51902d4, type: 3}
 --- !u!114 &1802864447150710136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,11 +195,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf0d388de49feb4dba579999ca5ef55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 10
   isGround: 0
   isWall: 0
   isObject: 0
   isEnemy: 0
+  timer: 0
+  timeBetweenShoots: 1
+  firePoint: {fileID: 642228869788234097}
 --- !u!1 &2114481120275124432
 GameObject:
   m_ObjectHideFlags: 0

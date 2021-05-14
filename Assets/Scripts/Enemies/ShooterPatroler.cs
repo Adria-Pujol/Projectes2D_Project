@@ -24,6 +24,7 @@ namespace Enemies
         private EnemyGroundChecker _groundChecker;
         private bool _isFacingRight = true;
         private Transform _player;
+        private float distRotation;
 
         public float timeBetweenShoots;
 
@@ -107,24 +108,24 @@ namespace Enemies
         {
             _isFacingRight = !_isFacingRight;
             transform.rotation = Quaternion.Euler(0, _isFacingRight ? 0 : 180, 0);
+            firePoint.rotation = Quaternion.Euler(0, 0, _isFacingRight ? distRotation - 180 : 180 - distRotation);
         }
 
         private void Shoot()
         {
             Vector2 dist = new Vector2(_player.position.x - firePoint.position.x, _player.position.y - firePoint.position.y);
 
-            float distRotation = AngleBetweenVector2(dist, new Vector2(1, 0));
-            distRotation = distRotation * (-1);
+            distRotation = AngleBetweenVector2(dist, new Vector2(1, 0));
 
-            Debug.Log("angle" + Convert.ToString(distRotation));
+            if (dist.x < 0 && _isFacingRight)
+            {
+                Flip();
+            }
 
             firePoint.Rotate(new Vector3(0, 0, distRotation));
 
-            
-
             BulletPooler.instance.SpawnFromPool("EnemyBullet", firePoint.position, firePoint.rotation);
             firePoint.Rotate(new Vector3(0, 0, 360 - distRotation));
-
         }
 
         private float AngleBetweenVector2(Vector2 vec1, Vector2 vec2)

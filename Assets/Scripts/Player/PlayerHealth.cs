@@ -11,6 +11,7 @@ namespace Player
         public bool canRecieveDmg;
         public Transform respawnPosition;
         public bool isFacingRight;
+        public float deadTimer;
 
         private Rigidbody2D _body;
 
@@ -19,6 +20,7 @@ namespace Player
             invulnerableCurrentTime = invulnerableTotalTime;
             _body = GetComponent<Rigidbody2D>();
             isFacingRight = gameObject.GetComponent<PlayerController>().isFacingRight;
+            deadTimer = 1.5f;
         }
 
         public void FixedUpdate()
@@ -41,7 +43,6 @@ namespace Player
                 if (isFacingRight)
                 {
                     _body.AddForce(new Vector2(-knockback * 20, knockback));
-                    Debug.Log("Cum");
                 }
                 else
                     _body.AddForce(new Vector2(knockback * 20, knockback));
@@ -95,8 +96,21 @@ namespace Player
         public void Death()
         {
             gameObject.GetComponent<PlayerController>().isDead = true;
-            health = 7f;
-            gameObject.transform.position = respawnPosition.position;
+            if (deadTimer <= 0)
+            {
+                gameObject.transform.position = respawnPosition.position;
+                gameObject.GetComponent<PlayerController>().animator.SetBool("Die", false);
+                deadTimer = 1.5f;
+                gameObject.GetComponent<PlayerController>()._input.Enable();
+                health = 7f;
+            }
+            else
+            {
+                gameObject.GetComponent<PlayerController>().animator.SetBool("Die", true);
+                gameObject.GetComponent<PlayerController>()._input.Disable();
+                gameObject.GetComponent<PlayerController>()._body.velocity = new Vector2(0, 0);
+                deadTimer -= Time.deltaTime;
+            }
         }
     }
 }
