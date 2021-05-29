@@ -8,45 +8,58 @@ namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
-        [Header("Layers")] [SerializeField] private LayerMask groundLayer;
+        [Header("General")]
+        public Rigidbody2D _body;
+        public InputPlayer _input;
+        public int collectables;
+        private GroundChecker _groundChecker;
+        private GroundChecker _groundChecker1;
+        private WallChecker _wallChecker;
+        private WeaponScript _weaponScript;
+        
+        [Header("Layers")] 
+        [SerializeField] private LayerMask groundLayer;
 
-        [Header("Movement")] [SerializeField] private float maxSpeed;
-
+        [Header("Movement")] 
         public bool isFacingRight = true;
-
-        [Header("Jumping")] [SerializeField] public bool isJumping;
-
+        public float _movInputCtx;
+        [SerializeField] private float maxSpeed;
+        private bool _isTopWall;
+        
+        [Header("Jumping")] 
+        public bool isJumping;
         [SerializeField] private float jumpVel;
-
         [SerializeField] private float fallMult;
-
         [SerializeField] private float shortJumpMult;
+        public float timerJump = 0.5f;
 
 
-        [Header("Wall")] [SerializeField] private float slideSpeed;
-
+        [Header("Wall")] 
         public float jumpWallValY;
         public float fallTimer;
         public float initialFallTimer;
+        [SerializeField] private float slideSpeed;
 
-        [Header("Shooting")] [SerializeField] public bool isShooting;
-
+        [Header("Shooting")]
+        [SerializeField]
+        private bool _isShooting;
         public float timerReset = 0.2f;
         public int activeWeapon = 1;
         public bool hasSwapped;
         public float swapTime;
         public float totalSwapTime;
-        public float ammunation;
+        public float ammunition;
         public float timer;
         public float startTime;
-        public bool _resetShooting = true;
+        private bool _resetShooting = true;
 
-        [Header("Melee")] [SerializeField] private bool isHitting;
+        [Header("Melee")] 
+        [SerializeField]
+        private bool _isHitting;
+        private bool _hasBeenPressed;
 
-        [SerializeField] private bool hasBeenPressed;
-
-        [Header("Booleans")] [SerializeField] private bool isGround;
-
+        [Header("Booleans")]
+        public bool isGround;
         public bool isWall;
         public bool isShifting;
         public bool isDead;
@@ -54,30 +67,22 @@ namespace Player
         public bool isRightGround;
         public bool isSpike;
         public bool isInObject;
+        
+        [Header("Slow State")] 
+        public bool slowState;
+        public float slowTimer;
+        public float slowTotalTime;
 
-        [Header("Confusion State")] public bool confusionState;
-
-        public float confusionTimer;
-        public float confusionTotalTime;
-        public Rigidbody2D _body;
-        private GroundChecker _groundChecker;
-        private GroundChecker _groundChecker1;
-        private bool _hasDashed;
-        public InputPlayer _input;
-        private bool _isTopWall;
-        public float _movInputCtx;
-        private WallChecker _wallChecker;
-        private WeaponScript _weaponScript;
-
-        [Header("Dash")] [SerializeField] public float totalDashTime;
-        [SerializeField] public float currentDashTime;
+        [Header("Dash")] 
+        public float totalDashTime;
+        public float currentDashTime;
         [SerializeField] private float dashSpeed;
         [SerializeField] private float initialDashSpeed;
-        public bool _isDashing;
+        private bool _isDashing;
+        private bool _hasDashed;
 
-        [SerializeField] public int collectables;
-
-        [Header("Animation")] [SerializeField] public Animator animator;
+        [Header("Animation")] 
+        [SerializeField] public Animator animator;
 
         private void Awake()
         {
@@ -100,6 +105,7 @@ namespace Player
             _groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
             _wallChecker = transform.Find("WallChecker").GetComponent<WallChecker>();
             _weaponScript = gameObject.GetComponent<WeaponScript>();
+            transform.Find("EyesColor1").gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
         }
 
         private void FixedUpdate()
@@ -158,18 +164,18 @@ namespace Player
             
             if (!isWall)
             {
-                if (confusionState)
+                if (slowState)
                 {
                     if (isDead)
                     {
-                        confusionState = false;
-                        confusionTimer = 0;
+                        slowState = false;
+                        slowTimer = 0;
                         isDead = false;
                     }
 
-                    if (confusionTimer <= 0)
+                    if (slowTimer <= 0)
                     {
-                        confusionState = false;
+                        slowState = false;
                     }
                     else
                     {
@@ -180,20 +186,20 @@ namespace Player
                         }
                         else if (_movInputCtx < 0)
                         {
-                            if (!isFacingRight) Flip();
+                            if (isFacingRight) Flip();
+                            isFacingRight = false;
+                            _body.velocity = new Vector2(-maxSpeed/2, _body.velocity.y);
                             animator.SetFloat("Walk", maxSpeed);
-                            isFacingRight = true;
-                            _body.velocity = new Vector2(maxSpeed, _body.velocity.y);
                         }
                         else
                         {
-                            if (isFacingRight) Flip();
+                            if (!isFacingRight) Flip();
+                            isFacingRight = true;
+                            _body.velocity = new Vector2(maxSpeed/2, _body.velocity.y);
                             animator.SetFloat("Walk", maxSpeed);
-                            isFacingRight = false;
-                            _body.velocity = new Vector2(-maxSpeed, _body.velocity.y);
                         }
 
-                        confusionTimer -= Time.deltaTime;
+                        slowTimer -= Time.deltaTime;
                     }
                 }
                 else
@@ -226,10 +232,15 @@ namespace Player
                 animator.SetBool("Jump", true);
                 _body.velocity = new Vector2(_body.velocity.x, jumpVel);
             }
+
             if (isJumping && _body.velocity.y > 0)
+            {
                 _body.gravityScale = fallMult;
+            }
             else
+            {    
                 _body.gravityScale = shortJumpMult;
+            }
             if (!isJumping && isGround)
             {
                 animator.SetBool("Jump", false);
@@ -241,21 +252,21 @@ namespace Player
             else
                 startTime = 0.2f;
 
-            if (isShooting && activeWeapon == 2)
+            if (_isShooting && activeWeapon == 2)
             {
-                if (ammunation > 0)
+                if (ammunition > 0)
                 {
                     if (_resetShooting)
                     {
                         _weaponScript.Shoot();
-                        ammunation -= 1;
+                        ammunition -= 1;
                         _resetShooting = false;
                     }
 
                     if (timer <= 0)
                     {
                         _weaponScript.Shoot();
-                        ammunation -= 1;
+                        ammunition -= 1;
                         timer = startTime;
                     }
                     else
@@ -264,7 +275,7 @@ namespace Player
                     }
                 }
             }
-            else if (!isShooting && activeWeapon == 2)
+            else if (!_isShooting && activeWeapon == 2)
             {
                 if (timerReset > 0)
                 {
@@ -279,7 +290,7 @@ namespace Player
                 timer = startTime;
             }
 
-            if (isShooting && activeWeapon == 1)
+            if (_isShooting && activeWeapon == 1)
             {
                 if (_resetShooting)
                 {
@@ -297,7 +308,7 @@ namespace Player
                     timer -= Time.deltaTime;
                 }
             }
-            else if (!isShooting && activeWeapon == 1)
+            else if (!_isShooting && activeWeapon == 1)
             {
                 if (timerReset > 0)
                 {
@@ -317,9 +328,15 @@ namespace Player
                 if (!hasSwapped && swapTime < 0)
                 {
                     if (activeWeapon == 1)
+                    {
                         activeWeapon++;
+                        transform.Find("EyesColor1").gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                    }
                     else
+                    {
                         activeWeapon = 1;
+                        transform.Find("EyesColor1").gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
+                    }
                     hasSwapped = true;
                     swapTime = totalSwapTime;
                 }
@@ -341,7 +358,7 @@ namespace Player
                     break;
                 case true when isShifting && !isGround && !_isTopWall:
                 {
-                    isShooting = false;
+                    _isShooting = false;
                     if (_movInputCtx != 0)
                     {
                         _body.velocity = new Vector2(_body.velocity.x, jumpWallValY);
@@ -442,11 +459,10 @@ namespace Player
 
             if (collision.CompareTag("Bullets"))
             {
-                float randomCollectable = Random.Range(0, 20);
-                ammunation += randomCollectable;
-                if (ammunation > 100)
+                ammunition += 20;
+                if (ammunition > 100)
                 {
-                    ammunation = 100;
+                    ammunition = 100;
                 }
                 Destroy(collision.gameObject);
             }
@@ -454,20 +470,20 @@ namespace Player
 
         public void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.CompareTag("Object")) hasBeenPressed = false;
+            if (collision.CompareTag("Object")) _hasBeenPressed = false;
         }
 
         public void OnTriggerStay2D(Collider2D collision)
         {
             //Flip Object
             if (!collision.CompareTag("Object")) return;
-            if (!isHitting || hasBeenPressed) return;
+            if (!_isHitting || _hasBeenPressed) return;
             var objTransform = collision.GetComponent<Transform>();
             var rotation = objTransform.rotation;
             rotation = new Quaternion(rotation.x, rotation.y, 180,
                 180);
             objTransform.rotation = rotation;
-            hasBeenPressed = true;
+            _hasBeenPressed = true;
         }
 
         private void MovementLeftRight(InputAction.CallbackContext ctx)
@@ -485,12 +501,12 @@ namespace Player
 
         private void Shoot(InputAction.CallbackContext ctx)
         {
-            isShooting = ctx.ReadValue<float>() != 0;
+            _isShooting = ctx.ReadValue<float>() != 0;
         }
 
         private void Melee(InputAction.CallbackContext ctx)
         {
-            isHitting = ctx.ReadValue<float>() != 0;
+            _isHitting = ctx.ReadValue<float>() != 0;
         }
 
         private void GrabWall(InputAction.CallbackContext ctx)
@@ -508,16 +524,26 @@ namespace Player
             isSwapping = ctx.ReadValue<float>() != 0;
         }
 
-        public void MakeConfusion()
+        public void MakeSlow()
         {
-            confusionState = true;
-            confusionTimer = confusionTotalTime;
+            slowState = true;
+            slowTimer = slowTotalTime;
         }
 
         private void Flip()
         {
             isFacingRight = !isFacingRight;
             transform.rotation = Quaternion.Euler(0, isFacingRight ? 0 : 180, 0);
+        }
+
+        public void resetVariables()
+        {
+            _movInputCtx = 0;
+            _isDashing = false;
+            _isHitting = false;
+            _isShooting = false;
+            isJumping = false;
+            isShifting = false;
         }
     }
 }

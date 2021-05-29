@@ -35,8 +35,8 @@ public class HUD_Controller : MonoBehaviour
     {
         if (!isAmmunationSet)
         {
-            totalAmmunation.text = player.GetComponent<PlayerController>().ammunation.ToString();
-            totalAmmunationNum = player.GetComponent<PlayerController>().ammunation;
+            totalAmmunation.text = player.GetComponent<PlayerController>().ammunition.ToString();
+            totalAmmunationNum = player.GetComponent<PlayerController>().ammunition;
             isAmmunationSet = true;
         }        
         hp.text = "Health: " + player.GetComponent<PlayerHealth>().health;
@@ -49,7 +49,7 @@ public class HUD_Controller : MonoBehaviour
         }
         else
         {
-            ammunation.text = player.GetComponent<PlayerController>().ammunation.ToString();
+            ammunation.text = player.GetComponent<PlayerController>().ammunition.ToString();
             totalAmmunation.text = totalAmmunationNum.ToString();
             bar.text = "/";
         }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Enemies
@@ -79,6 +80,11 @@ namespace Enemies
         public void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Player")) _player = collision.gameObject.transform;
+        }
+
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player")) _player = null;
         }
 
         public void OnTriggerExit2D(Collider2D collision)

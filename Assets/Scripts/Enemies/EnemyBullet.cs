@@ -52,7 +52,7 @@ namespace Enemies
                 if (playerHp != null)
                 {
                     playerHp.TakeDamage(bulletDamage);
-                    player.MakeConfusion();
+                    player.MakeSlow();
                 }
                 gameObject.SetActive(false);
             }

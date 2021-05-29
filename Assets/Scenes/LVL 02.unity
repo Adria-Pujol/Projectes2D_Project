@@ -272,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387036830735832732, guid: c2e2935d11d4a4b459ede18d77669664, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4387036830735832732, guid: c2e2935d11d4a4b459ede18d77669664, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1823,7 +1823,7 @@ Transform:
   - {fileID: 1591182980}
   - {fileID: 340997722}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &239600985
 GameObject:
@@ -3951,7 +3951,7 @@ Transform:
   - {fileID: 1389067275}
   - {fileID: 1817804884}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &366803910 stripped
 Transform:
@@ -4215,7 +4215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387036830735832732, guid: c2e2935d11d4a4b459ede18d77669664, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4387036830735832732, guid: c2e2935d11d4a4b459ede18d77669664, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6226,10 +6226,10 @@ Transform:
   m_LocalPosition: {x: 122.07657, y: 210.2854, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1822673998}
   - {fileID: 1867240407}
   - {fileID: 1671553146}
   - {fileID: 351324796}
-  - {fileID: 1822673998}
   - {fileID: 1383491998}
   m_Father: {fileID: 0}
   m_RootOrder: 14
@@ -6506,14 +6506,14 @@ PrefabInstance:
       propertyPath: knockback
       value: 500
       objectReference: {fileID: 0}
-    - target: {fileID: 6815609932787524713, guid: 2682f50dbcf14b444a056028508cf931, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7183049525195370735, guid: 2682f50dbcf14b444a056028508cf931, type: 3}
-      propertyPath: animator
+    - target: {fileID: 6110184999985409410, guid: 2682f50dbcf14b444a056028508cf931, type: 3}
+      propertyPath: camTransform
       value: 
-      objectReference: {fileID: 1064963217}
+      objectReference: {fileID: 1529487379}
+    - target: {fileID: 6110184999985409410, guid: 2682f50dbcf14b444a056028508cf931, type: 3}
+      propertyPath: shakeAmount
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 7349085155149499941, guid: 2682f50dbcf14b444a056028508cf931, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.39
@@ -9379,11 +9379,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e463d9542f1db641b51976ab790c14a, type: 3}
---- !u!95 &1064963217 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9191456027474838662, guid: 2682f50dbcf14b444a056028508cf931, type: 3}
-  m_PrefabInstance: {fileID: 798007631}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1066026015
 GameObject:
   m_ObjectHideFlags: 0
@@ -10235,7 +10230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387036830735832732, guid: c2e2935d11d4a4b459ede18d77669664, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4387036830735832732, guid: c2e2935d11d4a4b459ede18d77669664, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10268,7 +10263,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 642228870750850082, guid: 6d13555d7a26be143a50ada372982a84, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 642228870750850085, guid: 6d13555d7a26be143a50ada372982a84, type: 3}
+      propertyPath: dropBullets
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 642228870750850087, guid: 6d13555d7a26be143a50ada372982a84, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13481,6 +13480,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1529487379 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6330786483579479439, guid: 104f60a96269a9c499bc4e85e3820c59, type: 3}
+  m_PrefabInstance: {fileID: 840660373}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1538966074
 GameObject:
   m_ObjectHideFlags: 0
@@ -14449,6 +14453,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Shooter
       objectReference: {fileID: 0}
+    - target: {fileID: 642228870750850085, guid: 6d13555d7a26be143a50ada372982a84, type: 3}
+      propertyPath: dropBullets
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 642228870750850087, guid: 6d13555d7a26be143a50ada372982a84, type: 3}
       propertyPath: m_LocalPosition.x
       value: -219.5
@@ -14508,7 +14516,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 642228870750850082, guid: 6d13555d7a26be143a50ada372982a84, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 642228870750850085, guid: 6d13555d7a26be143a50ada372982a84, type: 3}
+      propertyPath: dropBullets
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 642228870750850087, guid: 6d13555d7a26be143a50ada372982a84, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15105,7 +15117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387036830735832732, guid: c2e2935d11d4a4b459ede18d77669664, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4387036830735832732, guid: c2e2935d11d4a4b459ede18d77669664, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15419,7 +15431,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 642228870750850082, guid: 6d13555d7a26be143a50ada372982a84, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 642228870750850085, guid: 6d13555d7a26be143a50ada372982a84, type: 3}
+      propertyPath: dropBullets
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 642228870750850087, guid: 6d13555d7a26be143a50ada372982a84, type: 3}
       propertyPath: m_LocalPosition.x

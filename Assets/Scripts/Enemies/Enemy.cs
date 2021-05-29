@@ -7,6 +7,7 @@ namespace Enemies
     {
         public float health = 100f;
         public GameObject bullets;
+        [SerializeField] private bool dropBullets;
 
         public void TakeDamage(float dmg)
         {
@@ -19,7 +20,7 @@ namespace Enemies
 
         public void Death()
         {
-            Instantiate(bullets, transform.position, transform.rotation);
+            if(dropBullets) Instantiate(bullets, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

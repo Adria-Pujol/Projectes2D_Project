@@ -45,7 +45,6 @@ public class BulletScript : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             var enemy = collision.GetComponent<Enemy>();
-
             if (enemy != null) enemy.TakeDamage(bulletDamage);
             gameObject.SetActive(false);
         }

@@ -5,13 +5,20 @@ namespace Player
     public class PlayerHealth : MonoBehaviour
     {
         public float health = 7f;
-        public float knockback;
         public float invulnerableTotalTime;
         public float invulnerableCurrentTime;
         public bool canRecieveDmg;
         public Transform respawnPosition;
         public bool isFacingRight;
         public float deadTimer;
+        private bool dead = false;
+        private bool deadTimerOut = false;
+        public bool shakeCamera = false;
+        public float shakeDuration = 1;
+        public float shakeAmount;
+        public float decreaseFactor = 1.0f;
+        public Transform camTransform;
+        Vector3 originalPos;
 
         private Rigidbody2D _body;
 
@@ -29,11 +36,36 @@ namespace Player
             if (invulnerableCurrentTime < invulnerableTotalTime)
             {
                 invulnerableCurrentTime += Time.deltaTime;
-                //Physics2D.IgnoreCollision(gameObject.GetComponent<PolygonCollider2D>(), GameObject.FindWithTag("Enemy").GetComponent<BoxCollider2D>());
             }
             else
             {
                 canRecieveDmg = true;
+            }
+
+            if (shakeCamera)
+            {
+                originalPos = camTransform.position;
+                if (shakeDuration > 0)
+                {
+                    camTransform.position += Random.insideUnitSphere * shakeAmount;
+                    shakeDuration -= Time.deltaTime * decreaseFactor;
+                }
+                else
+                {
+                    shakeDuration = 1;
+                    camTransform.localPosition = originalPos;
+                    shakeCamera = false;
+                }
+            }
+
+            if (dead && deadTimer > 0)
+            {
+                deadTimer -= Time.deltaTime;
+            }
+            else if (dead && deadTimer <= 0)
+            {
+                deadTimerOut = true;
+                Death();
             }
                 
         }
@@ -46,6 +78,7 @@ namespace Player
                 health -= 1;
                 invulnerableCurrentTime = 0f;
                 canRecieveDmg = false;
+                ShakeCamera();
             }
 
             if (health <= 0) Death();
@@ -64,9 +97,11 @@ namespace Player
                 health -= 1;
                 invulnerableCurrentTime = 0f;
                 canRecieveDmg = false;
+                ShakeCamera();
             }
             else
             {
+                Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
                 invulnerableCurrentTime += Time.deltaTime;
             }
 
@@ -80,6 +115,7 @@ namespace Player
                 health -= dmg;
                 invulnerableCurrentTime = 0f;
                 canRecieveDmg = false;
+                ShakeCamera();
             }
 
             if (health <= 0) Death();
@@ -88,21 +124,30 @@ namespace Player
         public void Death()
         {
             gameObject.GetComponent<PlayerController>().isDead = true;
-            if (deadTimer <= 0)
+            if (deadTimerOut)
             {
-                gameObject.transform.position = respawnPosition.position;
+                gameObject.GetComponent<PlayerController>().enabled = true;
                 gameObject.GetComponent<PlayerController>().animator.SetBool("Die", false);
-                deadTimer = 1.5f;
-                gameObject.GetComponent<PlayerController>()._input.Enable();
+                gameObject.transform.position = respawnPosition.position;
                 health = 7f;
+                deadTimer = 1.5f;
+                dead = false;
+                deadTimerOut = false;
             }
             else
             {
                 gameObject.GetComponent<PlayerController>().animator.SetBool("Die", true);
-                gameObject.GetComponent<PlayerController>()._input.Disable();
                 gameObject.GetComponent<PlayerController>()._body.velocity = new Vector2(0, 0);
-                deadTimer -= Time.deltaTime;
+                gameObject.GetComponent<PlayerController>().resetVariables();
+                gameObject.GetComponent<PlayerController>().enabled = false;
+                health = 0;
+                dead = true;
             }
+        }
+
+        private void ShakeCamera()
+        {
+            shakeCamera = true;
         }
     }
 }
