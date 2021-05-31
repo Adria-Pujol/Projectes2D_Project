@@ -105,7 +105,6 @@ namespace Player
             _groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
             _wallChecker = transform.Find("WallChecker").GetComponent<WallChecker>();
             _weaponScript = gameObject.GetComponent<WeaponScript>();
-            transform.Find("EyesColor1").gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
         }
 
         private void FixedUpdate()
@@ -330,12 +329,10 @@ namespace Player
                     if (activeWeapon == 1)
                     {
                         activeWeapon++;
-                        transform.Find("EyesColor1").gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                     }
                     else
                     {
                         activeWeapon = 1;
-                        transform.Find("EyesColor1").gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
                     }
                     hasSwapped = true;
                     swapTime = totalSwapTime;
