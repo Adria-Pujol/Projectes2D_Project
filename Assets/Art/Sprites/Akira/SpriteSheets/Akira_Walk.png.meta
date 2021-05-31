@@ -1,79 +1,37 @@
 fileFormatVersion: 2
-guid: 232d334cb60572f4bba0acd990ff5b69
+guid: 9a1ee1254dcbb12418f955ea8892e709
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6329074957091902696
-    second: Death_Anim_0
+      213: -6976409622137340034
+    second: Akira_Walk_0
   - first:
-      213: 1975634114174606001
-    second: Death_Anim_1
+      213: -6063973239330924388
+    second: Akira_Walk_1
   - first:
-      213: 1185230296574904058
-    second: Death_Anim_2
+      213: 5860778383254735246
+    second: Akira_Walk_2
   - first:
-      213: -7396087286868245796
-    second: Death_Anim_3
+      213: -1233057870270821387
+    second: Akira_Walk_3
   - first:
-      213: -3192944450383389290
-    second: Death_Anim_4
+      213: -7913366371672751687
+    second: Akira_Walk_4
   - first:
-      213: -8440870057971564192
-    second: Death_Anim_5
+      213: 8196136080462472722
+    second: Akira_Walk_5
   - first:
-      213: 2134197749279349774
-    second: Death_Anim_6
+      213: 5375416030961148806
+    second: Akira_Walk_6
   - first:
-      213: 6546729685584932719
-    second: Death_Anim_7
+      213: -6768378169940841991
+    second: Akira_Walk_7
   - first:
-      213: 6295635788747381962
-    second: Death_Anim_8
+      213: 3749689308687789294
+    second: Akira_Walk_8
   - first:
-      213: 8607088200948254627
-    second: Death_Anim_9
-  - first:
-      213: 173825658196300837
-    second: Death_Anim_10
-  - first:
-      213: -2402322734670925035
-    second: Death_Anim_11
-  - first:
-      213: -1499716403585399543
-    second: Death_Anim_0
-  - first:
-      213: -8156107531495928602
-    second: Death_Anim_1
-  - first:
-      213: -5373512016732732893
-    second: Death_Anim_2
-  - first:
-      213: 3718302953719443097
-    second: Death_Anim_3
-  - first:
-      213: 3707214578875063832
-    second: Death_Anim_4
-  - first:
-      213: 6002799290866390806
-    second: Death_Anim_5
-  - first:
-      213: 5514272300957781089
-    second: Death_Anim_6
-  - first:
-      213: 5489048703255791267
-    second: Death_Anim_7
-  - first:
-      213: 3050296456879121780
-    second: Death_Anim_8
-  - first:
-      213: -3639953566693788232
-    second: Death_Anim_9
-  - first:
-      213: 7327657856759050634
-    second: Death_Anim_10
-  - first:
-      213: 3425532270328571680
-    second: Death_Anim_11
+      213: -2319647726740041470
+    second: Akira_Walk_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -161,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Death_Anim_0
+      name: Akira_Walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -175,14 +133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 905477470efef2be0800000000000000
-      internalID: -1499716403585399543
+      spriteID: e7ff2e84960de2f90800000000000000
+      internalID: -6976409622137340034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_Anim_1
+      name: Akira_Walk_1
       rect:
         serializedVersion: 2
         x: 964
@@ -196,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ec0c4bb96fafce80800000000000000
-      internalID: -8156107531495928602
+      spriteID: c989436977078dba0800000000000000
+      internalID: -6063973239330924388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_Anim_2
+      name: Akira_Walk_2
       rect:
         serializedVersion: 2
         x: 1928
@@ -217,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3224a567a437d65b0800000000000000
-      internalID: -5373512016732732893
+      spriteID: e89cf2943eaa55150800000000000000
+      internalID: 5860778383254735246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_Anim_3
+      name: Akira_Walk_3
       rect:
         serializedVersion: 2
         x: 2892
@@ -238,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99eabb306d01a9330800000000000000
-      internalID: 3718302953719443097
+      spriteID: 5fb0207666c43eee0800000000000000
+      internalID: -1233057870270821387
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_Anim_4
+      name: Akira_Walk_4
       rect:
         serializedVersion: 2
         x: 3856
@@ -259,35 +217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81e5fff840ca27330800000000000000
-      internalID: 3707214578875063832
+      spriteID: 9b18ce636331e2290800000000000000
+      internalID: -7913366371672751687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_Anim_5
-      rect:
-        serializedVersion: 2
-        x: 4820
-        y: 690
-        width: 964
-        height: 690
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 617de0e962a3e4350800000000000000
-      internalID: 6002799290866390806
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Death_Anim_6
+      name: Akira_Walk_5
       rect:
         serializedVersion: 2
         x: 0
@@ -301,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16c4d5d1171a68c40800000000000000
-      internalID: 5514272300957781089
+      spriteID: 2166ab617568eb170800000000000000
+      internalID: 8196136080462472722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_Anim_7
+      name: Akira_Walk_6
       rect:
         serializedVersion: 2
         x: 964
@@ -322,14 +259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a64160a6b40d2c40800000000000000
-      internalID: 5489048703255791267
+      spriteID: 68321656660599a40800000000000000
+      internalID: 5375416030961148806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_Anim_8
+      name: Akira_Walk_7
       rect:
         serializedVersion: 2
         x: 1928
@@ -343,14 +280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 475a9e36774d45a20800000000000000
-      internalID: 3050296456879121780
+      spriteID: 9f9ea233ae3e112a0800000000000000
+      internalID: -6768378169940841991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_Anim_9
+      name: Akira_Walk_8
       rect:
         serializedVersion: 2
         x: 2892
@@ -364,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b5fc4234894c7dc0800000000000000
-      internalID: -3639953566693788232
+      spriteID: eec6a6e3f82990430800000000000000
+      internalID: 3749689308687789294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_Anim_10
+      name: Akira_Walk_9
       rect:
         serializedVersion: 2
         x: 3856
@@ -385,29 +322,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8139b34ff111b560800000000000000
-      internalID: 7327657856759050634
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Death_Anim_11
-      rect:
-        serializedVersion: 2
-        x: 4820
-        y: 0
-        width: 964
-        height: 690
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 027629b537fe98f20800000000000000
-      internalID: 3425532270328571680
+      spriteID: 2011e9bbea4fecfd0800000000000000
+      internalID: -2319647726740041470
       vertices: []
       indices: 
       edges: []

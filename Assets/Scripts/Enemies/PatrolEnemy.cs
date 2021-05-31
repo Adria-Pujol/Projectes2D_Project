@@ -25,10 +25,6 @@ namespace Enemies
         public void Awake()
         {
             _body = GetComponent<Rigidbody2D>();
-        }
-
-        private void Start()
-        {
             _generalChecker = transform.Find("GeneralChecker").GetComponent<GeneralChecker>();
             _groundChecker = transform.Find("GroundChecker").GetComponent<EnemyGroundChecker>();
         }
