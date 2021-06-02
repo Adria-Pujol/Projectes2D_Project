@@ -19,9 +19,7 @@ namespace Player
         public float decreaseFactor = 1.0f;
         public Transform camTransform;
         Vector3 originalPos;
-        public Collider2D colliderPolygon;
         public Collider2D colliderCapsule;
-        public Collider2D colliderCircle;
 
         private Rigidbody2D _body;
 
@@ -104,9 +102,7 @@ namespace Player
             }
             else
             {
-                Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), colliderPolygon);
                 Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), colliderCapsule);
-                Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), colliderCircle);
                 invulnerableCurrentTime += Time.deltaTime;
             }
 
