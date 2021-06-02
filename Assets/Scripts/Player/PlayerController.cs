@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Weapons;
@@ -32,6 +33,8 @@ namespace Player
         [SerializeField] private float fallMult;
         [SerializeField] private float shortJumpMult;
         public float timerJump = 0.5f;
+        public bool _hasJumped = false;
+        private bool _hasMakeLongJump = false;
 
 
         [Header("Wall")] 
@@ -226,23 +229,87 @@ namespace Player
             }
 
             //Jumping
+            if (isGround)
+            {
+                _hasJumped = false;
+                _hasMakeLongJump = false;
+            }
             if (isGround && isJumping || _isTopWall && isJumping || isInObject && isJumping)
             {
                 animator.SetBool("Jump", true);
                 _body.velocity = new Vector2(_body.velocity.x, jumpVel);
+                
             }
-
             if (isJumping && _body.velocity.y > 0)
             {
                 _body.gravityScale = fallMult;
+                _hasMakeLongJump = true;
             }
             else
             {    
                 _body.gravityScale = shortJumpMult;
             }
-            if (!isJumping && isGround)
+
+            if (isJumping)
             {
-                animator.SetBool("Jump", false);
+                _hasJumped = true;
+                if (_body.velocity.y < 0)
+                {
+                    animator.SetBool("Fall", true);
+                    animator.SetBool("Jump", false);
+                }
+                else if (_body.velocity.y > 0)
+                {
+                    animator.SetBool("Fall", false);
+                    animator.SetBool("Jump", true);
+                }
+                else if (_body.velocity.y == 0)
+                {
+                    animator.SetBool("Fall", false);
+                    animator.SetBool("Jump", false);
+                }
+            }
+            else
+            {
+                if (_hasJumped)
+                {
+                    if (_hasMakeLongJump)
+                    {
+                        if (_body.velocity.y < 0)
+                        {
+                            animator.SetBool("Fall", true);
+                            animator.SetBool("Jump", false);
+                        }
+                        else if (_body.velocity.y > 0)
+                        {
+                            animator.SetBool("Fall", false);
+                            animator.SetBool("Jump", true);
+                        }
+                        else if (_body.velocity.y == 0)
+                        {
+                            animator.SetBool("Fall", false);
+                            animator.SetBool("Jump", false);
+                        }
+                    }
+                    else
+                    {
+                        animator.SetBool("Fall", false);
+                        animator.SetBool("Jump", true);
+                    }
+                }
+                else
+                {
+                    if (!isGround)
+                    {
+                        animator.SetBool("Fall", true);
+                        animator.SetBool("Jump", false);
+                    }
+                    else
+                    {
+                        animator.SetBool("Fall", false);
+                        animator.SetBool("Jump", false);
+                    }
+                }
             }
 
             //Shooting
@@ -372,6 +439,8 @@ namespace Player
             if (!_isDashing || _hasDashed)
             {
                 animator.SetBool("Dash", false);
+                currentDashTime = totalDashTime;
+                dashSpeed = initialDashSpeed;
             }
 
             //Dash
@@ -395,6 +464,7 @@ namespace Player
                                 _hasDashed = true;
                                 currentDashTime = totalDashTime;
                                 dashSpeed = initialDashSpeed;
+                                _isDashing = false;
                             }
                         }
                         else
@@ -410,6 +480,7 @@ namespace Player
                                 _hasDashed = true;
                                 currentDashTime = totalDashTime;
                                 dashSpeed = initialDashSpeed;
+                                _isDashing = false;
                             }
                         }
                     }
@@ -426,13 +497,14 @@ namespace Player
                             _hasDashed = true;
                             currentDashTime = totalDashTime;
                             dashSpeed = initialDashSpeed;
+                            _isDashing = false;
                         }
                     }
                 }
-            }
-            else
-            {
-                _hasDashed = false;
+                else
+                {
+                    _hasDashed = false;
+                }
             }
         }
 

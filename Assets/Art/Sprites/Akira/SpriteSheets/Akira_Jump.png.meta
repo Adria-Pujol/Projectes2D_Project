@@ -1,40 +1,37 @@
 fileFormatVersion: 2
-guid: 85321d333b88bb040a377df9c94622b9
+guid: e40cfe45cda55db45bd64ed82f2c6c6c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7384012384991178037
-    second: Akira_Jump_2_0
+      213: 1416548514729589507
+    second: Akira_Jump_0
   - first:
-      213: 4928028087622122243
-    second: Akira_Jump_2_1
+      213: -3113728083052970681
+    second: Akira_Jump_1
   - first:
-      213: 24829254784823319
-    second: Akira_Jump_2_2
+      213: -839937042722104924
+    second: Akira_Jump_2
   - first:
-      213: 6896809084283842094
-    second: Akira_Jump_2_3
+      213: 2140018655238773805
+    second: Akira_Jump_3
   - first:
-      213: -7899233170868469881
-    second: Akira_Jump_2_4
+      213: -2248892161076852754
+    second: Akira_Jump_4
   - first:
-      213: 1210314615326495014
-    second: Akira_Jump_2_5
+      213: -1933561303852404273
+    second: Akira_Jump_5
   - first:
-      213: -8261781622804996833
-    second: Akira_Jump_2_6
+      213: -667694134523920978
+    second: Akira_Jump_6
   - first:
-      213: 2108525161897830391
-    second: Akira_Jump_2_7
+      213: -4093324339776339784
+    second: Akira_Jump_7
   - first:
-      213: 7628062806557009935
-    second: Akira_Jump_2_8
+      213: -7558238320855791604
+    second: Akira_Jump_8
   - first:
-      213: -8243660915770916119
-    second: Akira_Jump_2_9
-  - first:
-      213: -8395366136106976889
-    second: Akira_Jump_2_10
+      213: -731531056629343177
+    second: Akira_Jump_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -122,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Akira_Jump_2_0
+      name: Akira_Jump_0
       rect:
         serializedVersion: 2
         x: 0
@@ -136,14 +133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53deb785428497660800000000000000
-      internalID: 7384012384991178037
+      spriteID: 30b70937e5798a310800000000000000
+      internalID: 1416548514729589507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Akira_Jump_2_1
+      name: Akira_Jump_1
       rect:
         serializedVersion: 2
         x: 964
@@ -157,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30b3dd59f6fd36440800000000000000
-      internalID: 4928028087622122243
+      spriteID: 74d38724ec0d9c4d0800000000000000
+      internalID: -3113728083052970681
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Akira_Jump_2_2
+      name: Akira_Jump_2
       rect:
         serializedVersion: 2
         x: 1928
@@ -178,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 710bc7f5316385000800000000000000
-      internalID: 24829254784823319
+      spriteID: 4a95bd6b5b1f754f0800000000000000
+      internalID: -839937042722104924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Akira_Jump_2_3
+      name: Akira_Jump_3
       rect:
         serializedVersion: 2
         x: 2892
@@ -199,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2eec60425366bf50800000000000000
-      internalID: 6896809084283842094
+      spriteID: d2c573ee0afd2bd10800000000000000
+      internalID: 2140018655238773805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Akira_Jump_2_4
+      name: Akira_Jump_4
       rect:
         serializedVersion: 2
         x: 3856
@@ -220,35 +217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78ff6647849406290800000000000000
-      internalID: -7899233170868469881
+      spriteID: ee78ad0ae745ac0e0800000000000000
+      internalID: -2248892161076852754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Akira_Jump_2_5
-      rect:
-        serializedVersion: 2
-        x: 4820
-        y: 690
-        width: 964
-        height: 690
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 621dff8eab6ebc010800000000000000
-      internalID: 1210314615326495014
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Akira_Jump_2_6
+      name: Akira_Jump_5
       rect:
         serializedVersion: 2
         x: 0
@@ -262,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1d9bd80361485d80800000000000000
-      internalID: -8261781622804996833
+      spriteID: fc1bf641d3c9a25e0800000000000000
+      internalID: -1933561303852404273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Akira_Jump_2_7
+      name: Akira_Jump_6
       rect:
         serializedVersion: 2
         x: 964
@@ -283,14 +259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f7a4ea967cf24d10800000000000000
-      internalID: 2108525161897830391
+      spriteID: eadf615e8bfdbb6f0800000000000000
+      internalID: -667694134523920978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Akira_Jump_2_8
+      name: Akira_Jump_7
       rect:
         serializedVersion: 2
         x: 1928
@@ -304,14 +280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f08233515b25cd960800000000000000
-      internalID: 7628062806557009935
+      spriteID: 8b0cb2943379137c0800000000000000
+      internalID: -4093324339776339784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Akira_Jump_2_9
+      name: Akira_Jump_8
       rect:
         serializedVersion: 2
         x: 2892
@@ -325,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e204bae212a89d80800000000000000
-      internalID: -8243660915770916119
+      spriteID: c0845adda4ebb1790800000000000000
+      internalID: -7558238320855791604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Akira_Jump_2_10
+      name: Akira_Jump_9
       rect:
         serializedVersion: 2
         x: 3856
@@ -346,8 +322,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 789fff1dafaad7b80800000000000000
-      internalID: -8395366136106976889
+      spriteID: 73c117b316419d5f0800000000000000
+      internalID: -731531056629343177
       vertices: []
       indices: 
       edges: []

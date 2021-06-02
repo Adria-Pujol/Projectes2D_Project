@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 47518e3fc802d71419c44caf4510af9c
+guid: 9c5e179c6622af340b150e597c261767
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3002507686494887396
-    second: Run_Anim_0
+      213: 1481992336486443643
+    second: Akira_Dash_0
   - first:
-      213: 1097000870211826290
-    second: Run_Anim_1
+      213: 1999161496421544423
+    second: Akira_Dash_1
   - first:
-      213: -8778953622598431969
-    second: Run_Anim_2
+      213: -1881143874261341829
+    second: Akira_Dash_2
   - first:
-      213: 8139654701817259392
-    second: Run_Anim_3
+      213: -6442274505263589066
+    second: Akira_Dash_3
   - first:
-      213: -2909690467496221878
-    second: Run_Anim_4
+      213: 6077879879508524914
+    second: Akira_Dash_4
   - first:
-      213: -1692667060852036976
-    second: Run_Anim_5
+      213: -4227299203300258540
+    second: Akira_Dash_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -107,127 +107,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Run_Anim_0
+      name: Akira_Dash_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 653
-        width: 886
-        height: 653
+        y: 690
+        width: 964
+        height: 690
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ed58e835dc0ba920800000000000000
-      internalID: 3002507686494887396
+      spriteID: b7a20289d28119410800000000000000
+      internalID: 1481992336486443643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_Anim_1
+      name: Akira_Dash_1
       rect:
         serializedVersion: 2
-        x: 886
-        y: 653
-        width: 886
-        height: 653
+        x: 964
+        y: 690
+        width: 964
+        height: 690
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2723543ba74593f00800000000000000
-      internalID: 1097000870211826290
+      spriteID: 7e138daf9c27ebb10800000000000000
+      internalID: 1999161496421544423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_Anim_2
+      name: Akira_Dash_2
       rect:
         serializedVersion: 2
-        x: 1772
-        y: 653
-        width: 886
-        height: 653
+        x: 1928
+        y: 690
+        width: 964
+        height: 690
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1b44617134ea2680800000000000000
-      internalID: -8778953622598431969
+      spriteID: b792043fc95d4e5e0800000000000000
+      internalID: -1881143874261341829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_Anim_3
+      name: Akira_Dash_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 886
-        height: 653
+        width: 964
+        height: 690
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 085e72853dcd5f070800000000000000
-      internalID: 8139654701817259392
+      spriteID: 639553858717896a0800000000000000
+      internalID: -6442274505263589066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_Anim_4
+      name: Akira_Dash_4
       rect:
         serializedVersion: 2
-        x: 886
+        x: 964
         y: 0
-        width: 886
-        height: 653
+        width: 964
+        height: 690
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a432c8e9fe3be97d0800000000000000
-      internalID: -2909690467496221878
+      spriteID: 27f79956c87f85450800000000000000
+      internalID: 6077879879508524914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_Anim_5
+      name: Akira_Dash_5
       rect:
         serializedVersion: 2
-        x: 1772
+        x: 1928
         y: 0
-        width: 886
-        height: 653
+        width: 964
+        height: 690
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09ae8eab6407288e0800000000000000
-      internalID: -1692667060852036976
+      spriteID: 41d0ff395cd9555c0800000000000000
+      internalID: -4227299203300258540
       vertices: []
       indices: 
       edges: []
