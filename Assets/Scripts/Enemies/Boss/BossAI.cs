@@ -45,7 +45,7 @@ public class BossAI : MonoBehaviour
         _rightGroundChecker = transform.Find("RightGroundCheck").GetComponent<BossRightGroundChecker>();
         _wallChecker = transform.Find("WallCheck").GetComponent<BossWallChecker>();
         _body.gravityScale = multiplier;
-        _inputBoss.Player.Shoot.performed += ctx => Attack1(ctx);
+        //_inputBoss.Player.Shoot.performed += ctx => Attack1(ctx);
     }
 
     private void FixedUpdate()
