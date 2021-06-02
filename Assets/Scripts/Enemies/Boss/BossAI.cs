@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BossAI : MonoBehaviour
 {
@@ -26,7 +27,6 @@ public class BossAI : MonoBehaviour
     private bool _isRightGround;
     private bool _isWall;
     
-
     //Attack1 State
 
     //Attack2 State
@@ -34,6 +34,9 @@ public class BossAI : MonoBehaviour
     //Attack3 State
 
     //Rage State
+    
+    //Testing Variables
+    private InputPlayer _inputBoss;
 
     private void Awake()
     {
@@ -42,6 +45,7 @@ public class BossAI : MonoBehaviour
         _rightGroundChecker = transform.Find("RightGroundCheck").GetComponent<BossRightGroundChecker>();
         _wallChecker = transform.Find("WallCheck").GetComponent<BossWallChecker>();
         _body.gravityScale = multiplier;
+        _inputBoss.Player.Shoot.performed += ctx => Shoot(ctx);
     }
 
     private void FixedUpdate()
@@ -89,6 +93,7 @@ public class BossAI : MonoBehaviour
     private void Jump()
     {
         _body.velocity = new Vector2(0, jumpSpeed);
+        _body.gravityScale = multiplier;
     }
     private void Flip()
     {

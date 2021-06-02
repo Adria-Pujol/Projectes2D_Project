@@ -316,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240201164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -201.4, y: 67.6, z: -1400.3085}
+  m_LocalPosition: {x: -201.4, y: 67.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -856,6 +856,10 @@ PrefabInstance:
       propertyPath: respawnPosition
       value: 
       objectReference: {fileID: 240201165}
+    - target: {fileID: 6110184999985409410, guid: 2682f50dbcf14b444a056028508cf931, type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8660466643929717836, guid: 2682f50dbcf14b444a056028508cf931, type: 3}
       propertyPath: m_Name
       value: Character
@@ -1135,15 +1139,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
       propertyPath: jumpSpeed
-      value: 240
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
       propertyPath: multiplier
-      value: 160
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
       propertyPath: speed
-      value: 100
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 1667185510697509004, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
       propertyPath: m_LocalPosition.x
