@@ -129,11 +129,12 @@ namespace Player
             {
                 gameObject.GetComponent<PlayerController>().enabled = true;
                 gameObject.GetComponent<PlayerController>().animator.SetBool("Die", false);
-                gameObject.transform.position = respawnPosition.position;
+                
                 health = 7f;
                 deadTimer = 1.5f;
                 dead = false;
                 deadTimerOut = false;
+                gameObject.transform.position = respawnPosition.position;
             }
             else
             {
