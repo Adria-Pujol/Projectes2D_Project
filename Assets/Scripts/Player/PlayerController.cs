@@ -260,7 +260,6 @@ namespace Player
                 _collider2D.size = new Vector2(2.32f, 2.37f);
                 _collider2D.offset = new Vector2(0.9f, 1f); 
                 _body.velocity = new Vector2(_body.velocity.x, jumpVel);
-                
             }
             if (isJumping && _body.velocity.y > 0)
             {
@@ -483,12 +482,17 @@ namespace Player
                 dashSpeed = initialDashSpeed;
             }
 
+            if (isWall && isShifting)
+            {
+                animator.SetBool("Climb", true);
+            }
+
             //Dash
             if (isGround && _isDashing)
             {
                 animator.SetBool("Dash", true);
-                _collider2D.size = new Vector2(4.95f, 2.5f);
-                _collider2D.offset = new Vector2(0.83f, -1.23f);
+                _collider2D.size = new Vector2(6.2f, 2.6f);
+                _collider2D.offset = new Vector2(0.32f, -1.3f);
                 _collider2D.direction = CapsuleDirection2D.Horizontal;
                 if (!_hasDashed)
                 {
