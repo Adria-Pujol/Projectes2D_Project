@@ -601,8 +601,7 @@ namespace Player
             if (!_isHitting || _hasBeenPressed) return;
             var objTransform = collision.GetComponent<Transform>();
             var rotation = objTransform.rotation;
-            rotation = new Quaternion(rotation.x, rotation.y, 180,
-                180);
+            rotation = new Quaternion(rotation.x, rotation.y, 180, 180);
             objTransform.rotation = rotation;
             _hasBeenPressed = true;
         }
