@@ -430,6 +430,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &272063647 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4058519962511047649, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+  m_PrefabInstance: {fileID: 1578165658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &287284283
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +537,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287284283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -215.88, y: 121.22, z: 0}
+  m_LocalPosition: {x: -214.3, y: 121.22, z: 0}
   m_LocalScale: {x: 8.951768, y: 126.760956, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -830,12 +835,30 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468364107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -215.88, y: 51.8, z: 0}
+  m_LocalPosition: {x: -214.3, y: 51.8, z: 0}
   m_LocalScale: {x: 8.951768, y: 126.760956, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &519370488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1667185510697509104, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+  m_PrefabInstance: {fileID: 1578165658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &519370494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519370488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddea2b31a33c5c0419971469994aaa0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 49
 --- !u!4 &519986734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6330786483579479439, guid: 104f60a96269a9c499bc4e85e3820c59, type: 3}
@@ -1148,6 +1171,62 @@ PrefabInstance:
     - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
       propertyPath: speed
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: initialSprintSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: totalSprintTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: spawnZone
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: rock
+      value: 
+      objectReference: {fileID: 8950768796531198183, guid: 0a2ce55349e0a1a42b665fec1bfa8594, type: 3}
+    - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: totalSpawnTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: maximumRocks
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: timeBetweenSkills
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: totalSkillTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: totalTiredCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: attack1TotalCooldown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: _sprintSpeed
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: attack2TotalCooldown
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: shootingPoint
+      value: 
+      objectReference: {fileID: 272063647}
+    - target: {fileID: 1474811269816058299, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: attack3TotalCooldown
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1667185510697509004, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
       propertyPath: m_LocalPosition.x

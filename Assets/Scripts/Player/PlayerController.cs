@@ -109,6 +109,7 @@ namespace Player
             _groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
             _wallChecker = transform.Find("WallChecker").GetComponent<WallChecker>();
             _weaponScript = gameObject.GetComponent<WeaponScript>();
+            _body.gravityScale = shortJumpMult;
         }
 
         private void FixedUpdate()
@@ -253,14 +254,17 @@ namespace Player
                 _hasJumped = false;
                 _hasMakeLongJump = false;
             }
+
             if (isGround && isJumping || _isTopWall && isJumping || isInObject && isJumping)
             {
                 animator.SetBool("Jump", true);
+                _hasJumped = true;
                 _collider2D.direction = CapsuleDirection2D.Vertical;
                 _collider2D.size = new Vector2(2.32f, 2.37f);
                 _collider2D.offset = new Vector2(0.9f, 1f); 
                 _body.velocity = new Vector2(_body.velocity.x, jumpVel);
             }
+
             if (isJumping && _body.velocity.y > 0)
             {
                 _body.gravityScale = fallMult;
@@ -270,6 +274,7 @@ namespace Player
             {    
                 _body.gravityScale = shortJumpMult;
             }
+            
 
             if (isJumping)
             {
@@ -518,7 +523,7 @@ namespace Player
                         {
                             if (currentDashTime >= 0)
                             {
-                                _body.velocity = new Vector2(-dashSpeed * 40f, _body.velocity.y);
+                                _body.velocity = new Vector2(-dashSpeed * 50f, _body.velocity.y);
                                 dashSpeed -= Time.deltaTime;
                                 currentDashTime -= 0.25f;
                             }

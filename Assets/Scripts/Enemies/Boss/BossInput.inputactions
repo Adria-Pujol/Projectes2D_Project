@@ -1,0 +1,90 @@
+{
+    "name": "BossInput",
+    "maps": [
+        {
+            "name": "BossMap",
+            "id": "d2bb3745-9553-4999-8b5d-42aac6db7020",
+            "actions": [
+                {
+                    "name": "Attack1",
+                    "type": "PassThrough",
+                    "id": "dde44b04-f9fb-47eb-b114-397dc828dd0e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Attack2",
+                    "type": "PassThrough",
+                    "id": "95424648-fa6e-465f-868b-6df8d084414a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Attack3",
+                    "type": "PassThrough",
+                    "id": "37e8cfe8-658d-4611-9cdf-17b210d28def",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Enrage",
+                    "type": "PassThrough",
+                    "id": "51bd912b-aeb2-4b9e-bea6-9c72b65ded52",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3e82f855-6b24-4353-b82b-08226f1dda91",
+                    "path": "<Keyboard>/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4e19b399-1af5-4721-a81a-c1c28730c3c1",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e93e3877-6286-4038-a77c-5e551956a039",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b5338867-0665-40cb-bd4d-244718835273",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Enrage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

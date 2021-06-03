@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1667185510697509004}
   - component: {fileID: 1667185510697509107}
-  - component: {fileID: 1667185510697509106}
   - component: {fileID: 1667185510697509005}
   - component: {fileID: 1474811269816058299}
+  - component: {fileID: 298147811000259107}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -34,6 +34,7 @@ Transform:
   - {fileID: 1667185510751985888}
   - {fileID: 1667185510959079395}
   - {fileID: 6482441129766794928}
+  - {fileID: 4058519962511047649}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -88,32 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1667185510697509106
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667185510697509104}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.014249086, y: -0.0075001717}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.51, y: 5.51}
-    newSize: {x: 5.51, y: 5.51}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5.1965175, y: 5.2250156}
-  m_EdgeRadius: 0
 --- !u!50 &1667185510697509005
 Rigidbody2D:
   serializedVersion: 4
@@ -149,9 +124,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   isFacingRight: 0
+  totalSkillTime: 0
+  timeBetweenSkills: 0
+  number: 0
+  isDoingSkill: 0
+  tiredCooldown: 0
+  totalTiredCooldown: 0
   speed: 50
   jumpSpeed: 50
   multiplier: 18
+  attack1Cooldown: 0
+  attack1TotalCooldown: 0
+  _sprintSpeed: 0
+  shootingPoint: {fileID: 0}
+  rock: {fileID: 0}
+  xLeftPoint: -160
+  xRightPoint: 255
+  yDownPoint: 145
+  yTopPoint: 170
+  maximumRocks: 0
+  attack2Cooldown: 0
+  attack2TotalCooldown: 0
+--- !u!70 &298147811000259107
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667185510697509104}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 5.51, y: 5.51}
+  m_Direction: 0
 --- !u!1 &1667185510751985895
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,6 +307,36 @@ MonoBehaviour:
     m_Bits: 512
   isWall: 0
   isRightGround: 0
+--- !u!1 &3805228812884228233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4058519962511047649}
+  m_Layer: 0
+  m_Name: ShootingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4058519962511047649
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3805228812884228233}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.13, y: 0.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1667185510697509004}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5044554535711377542
 GameObject:
   m_ObjectHideFlags: 0
