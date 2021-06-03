@@ -20,6 +20,7 @@ public class Spikes : MonoBehaviour
             else
             {
                 collision.GetComponent<PlayerHealth>().health -= 1;
+                FindObjectOfType<audioManager>().Play("GetHit");
                 collision.transform.position = respawnPoint.position;
             }
         }

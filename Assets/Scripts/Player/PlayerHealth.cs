@@ -144,6 +144,7 @@ namespace Player
                 gameObject.GetComponent<PlayerController>().enabled = false;
                 health = 0;
                 dead = true;
+                FindObjectOfType<audioManager>().Play("PlayerDeath");
             }
         }
 
