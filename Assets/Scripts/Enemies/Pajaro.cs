@@ -44,40 +44,17 @@ namespace Enemies
 
             if (_player)
             {
-
                 Vector3 dist2 = new Vector3(_player.position.x - transform.position.x, _player.position.y - transform.position.y, _player.position.z - transform.position.z);
-                //dist2 = Vector3.Normalize(dist2);
-                transform.position = transform.position + (speed * dist2 * Time.deltaTime);
-                /*if (isWall || !isGround || isObject || isEnemy)
-                {
-                    Flip();
-                    var velocity = _body.velocity;
-                    velocity =
-                        _isFacingRight ? new Vector2(speed, velocity.y) : new Vector2(-speed, velocity.y);
-                    _body.velocity = velocity;
-                    _player = null;
-                }
-                else
-                {
-                    Vector2 dist = new Vector2(_player.position.x - transform.position.x, _player.position.y - transform.position.y);
-                    Vector3 dist2 = new Vector3(_player.position.x - transform.position.x, _player.position.y - transform.position.y, _player.position.z - transform.position.z);
-                    dist2 = Vector3.Normalize(dist2);
-                    if (dist.x < 0 && _isFacingRight)
-                    {
-                        Flip();
-                    }
-                    else if (dist.x > 0 && !_isFacingRight)
-                    {
-                        Flip();
-                    } 
-                    transform.position = Vector2.MoveTowards(transform.position,
-                    new Vector2(_player.position.x, transform.position.y), speed * Time.deltaTime * 2); 
-                transform.position = transform.position + (speed * dist2); */
+                dist2 = Vector3.Normalize(dist2);
+                transform.position = transform.position + (speed * dist2 * Time.fixedDeltaTime);
+                //_body.MovePosition(_body.position + new Vector2(1, 1));
+                //_body.MovePosition(_body.position + (dist2 * speed * Time.fixedDeltaTime));
 
             }
             else
             {
                 Patrol();
+
             }
         }
             

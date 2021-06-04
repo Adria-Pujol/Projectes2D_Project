@@ -782,7 +782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e172c2ed56debe4b801d27ebd563c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 10
   isGround: 0
   isWall: 0
   isObject: 0
