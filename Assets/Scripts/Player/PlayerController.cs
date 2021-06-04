@@ -17,6 +17,7 @@ namespace Player
         private GroundChecker _groundChecker1;
         private WallChecker _wallChecker;
         private WeaponScript _weaponScript;
+        [SerializeField] private CapsuleCollider2D _collider2D;
         
         [Header("Layers")] 
         [SerializeField] private LayerMask groundLayer;
@@ -108,6 +109,7 @@ namespace Player
             _groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
             _wallChecker = transform.Find("WallChecker").GetComponent<WallChecker>();
             _weaponScript = gameObject.GetComponent<WeaponScript>();
+            _body.gravityScale = shortJumpMult;
         }
 
         private void FixedUpdate()
@@ -185,6 +187,9 @@ namespace Player
                         {
                             _body.velocity = new Vector2(0, _body.velocity.y);
                             animator.SetFloat("Walk", 0);
+                            _collider2D.direction = CapsuleDirection2D.Vertical;
+                            _collider2D.size = new Vector2(2.8f, 5f);
+                            _collider2D.offset = new Vector2(0.75f, -0.22f);
                         }
                         else if (_movInputCtx < 0)
                         {
@@ -192,6 +197,9 @@ namespace Player
                             isFacingRight = false;
                             _body.velocity = new Vector2(-maxSpeed/2, _body.velocity.y);
                             animator.SetFloat("Walk", maxSpeed);
+                            _collider2D.direction = CapsuleDirection2D.Vertical;
+                            _collider2D.size = new Vector2(2.47f, 5f);
+                            _collider2D.offset = new Vector2(-0.1f, -0.22f);
                         }
                         else
                         {
@@ -199,6 +207,9 @@ namespace Player
                             isFacingRight = true;
                             _body.velocity = new Vector2(maxSpeed/2, _body.velocity.y);
                             animator.SetFloat("Walk", maxSpeed);
+                            _collider2D.direction = CapsuleDirection2D.Vertical;
+                            _collider2D.size = new Vector2(2.47f, 5f);
+                            _collider2D.offset = new Vector2(-0.1f, -0.22f);
                         }
 
                         slowTimer -= Time.deltaTime;
@@ -210,6 +221,9 @@ namespace Player
                     {
                         _body.velocity = new Vector2(0, _body.velocity.y);
                         animator.SetFloat("Walk", 0);
+                        _collider2D.direction = CapsuleDirection2D.Vertical;
+                        _collider2D.size = new Vector2(2.8f, 5f);
+                        _collider2D.offset = new Vector2(0.75f, -0.22f);
                     }
                     else if (_movInputCtx < 0)
                     {
@@ -217,6 +231,9 @@ namespace Player
                         isFacingRight = false;
                         _body.velocity = new Vector2(-maxSpeed, _body.velocity.y);
                         animator.SetFloat("Walk", maxSpeed);
+                        _collider2D.direction = CapsuleDirection2D.Vertical;
+                        _collider2D.size = new Vector2(2.47f, 5f);
+                        _collider2D.offset = new Vector2(-0.1f, -0.22f);
                     }
                     else
                     {
@@ -224,6 +241,9 @@ namespace Player
                         isFacingRight = true;
                         _body.velocity = new Vector2(maxSpeed, _body.velocity.y);
                         animator.SetFloat("Walk", maxSpeed);
+                        _collider2D.direction = CapsuleDirection2D.Vertical;
+                        _collider2D.size = new Vector2(2.47f, 5f);
+                        _collider2D.offset = new Vector2(-0.1f, -0.22f);
                     }
                 }
             }
@@ -234,12 +254,17 @@ namespace Player
                 _hasJumped = false;
                 _hasMakeLongJump = false;
             }
+
             if (isGround && isJumping || _isTopWall && isJumping || isInObject && isJumping)
             {
                 animator.SetBool("Jump", true);
+                _hasJumped = true;
+                _collider2D.direction = CapsuleDirection2D.Vertical;
+                _collider2D.size = new Vector2(2.32f, 2.37f);
+                _collider2D.offset = new Vector2(0.9f, 1f); 
                 _body.velocity = new Vector2(_body.velocity.x, jumpVel);
-                
             }
+
             if (isJumping && _body.velocity.y > 0)
             {
                 _body.gravityScale = fallMult;
@@ -249,6 +274,7 @@ namespace Player
             {    
                 _body.gravityScale = shortJumpMult;
             }
+            
 
             if (isJumping)
             {
@@ -257,11 +283,17 @@ namespace Player
                 {
                     animator.SetBool("Fall", true);
                     animator.SetBool("Jump", false);
+                    _collider2D.direction = CapsuleDirection2D.Vertical;
+                    _collider2D.size = new Vector2(2.1f, 4.8f);
+                    _collider2D.offset = new Vector2(-0.08f, -0.05f);
                 }
                 else if (_body.velocity.y > 0)
                 {
                     animator.SetBool("Fall", false);
                     animator.SetBool("Jump", true);
+                    _collider2D.direction = CapsuleDirection2D.Vertical;
+                    _collider2D.size = new Vector2(2.32f, 2.37f);
+                    _collider2D.offset = new Vector2(0.9f, 1f); 
                 }
                 else if (_body.velocity.y == 0)
                 {
@@ -279,11 +311,17 @@ namespace Player
                         {
                             animator.SetBool("Fall", true);
                             animator.SetBool("Jump", false);
+                            _collider2D.direction = CapsuleDirection2D.Vertical;
+                            _collider2D.size = new Vector2(2.1f, 4.8f);
+                            _collider2D.offset = new Vector2(-0.08f, -0.05f);
                         }
                         else if (_body.velocity.y > 0)
                         {
                             animator.SetBool("Fall", false);
                             animator.SetBool("Jump", true);
+                            _collider2D.direction = CapsuleDirection2D.Vertical;
+                            _collider2D.size = new Vector2(2.32f, 2.37f);
+                            _collider2D.offset = new Vector2(0.9f, 1f); 
                         }
                         else if (_body.velocity.y == 0)
                         {
@@ -295,6 +333,9 @@ namespace Player
                     {
                         animator.SetBool("Fall", false);
                         animator.SetBool("Jump", true);
+                        _collider2D.direction = CapsuleDirection2D.Vertical;
+                        _collider2D.size = new Vector2(2.32f, 2.37f);
+                        _collider2D.offset = new Vector2(0.9f, 1f); 
                     }
                 }
                 else
@@ -303,6 +344,9 @@ namespace Player
                     {
                         animator.SetBool("Fall", true);
                         animator.SetBool("Jump", false);
+                        _collider2D.direction = CapsuleDirection2D.Vertical;
+                        _collider2D.size = new Vector2(2.1f, 4.8f);
+                        _collider2D.offset = new Vector2(-0.08f, -0.05f);
                     }
                     else
                     {
@@ -443,10 +487,18 @@ namespace Player
                 dashSpeed = initialDashSpeed;
             }
 
+            if (isWall && isShifting)
+            {
+                animator.SetBool("Climb", true);
+            }
+
             //Dash
             if (isGround && _isDashing)
             {
                 animator.SetBool("Dash", true);
+                _collider2D.size = new Vector2(6.2f, 2.6f);
+                _collider2D.offset = new Vector2(0.32f, -1.3f);
+                _collider2D.direction = CapsuleDirection2D.Horizontal;
                 if (!_hasDashed)
                 {
                     if (_body.velocity.x == 0)
@@ -471,7 +523,7 @@ namespace Player
                         {
                             if (currentDashTime >= 0)
                             {
-                                _body.velocity = new Vector2(-dashSpeed * 40f, _body.velocity.y);
+                                _body.velocity = new Vector2(-dashSpeed * 50f, _body.velocity.y);
                                 dashSpeed -= Time.deltaTime;
                                 currentDashTime -= 0.25f;
                             }
@@ -549,8 +601,7 @@ namespace Player
             if (!_isHitting || _hasBeenPressed) return;
             var objTransform = collision.GetComponent<Transform>();
             var rotation = objTransform.rotation;
-            rotation = new Quaternion(rotation.x, rotation.y, 180,
-                180);
+            rotation = new Quaternion(rotation.x, rotation.y, 180, 180);
             objTransform.rotation = rotation;
             _hasBeenPressed = true;
         }

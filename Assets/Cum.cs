@@ -8,10 +8,10 @@ public class Cum : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D other)
     {
-        transform.Find("Text1").gameObject.SetActive(true);
+        //transform.Find("Text1").gameObject.SetActive(true);
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        transform.Find("Text1").gameObject.SetActive(false);
+        //transform.Find("Text1").gameObject.SetActive(false);
     }
 }

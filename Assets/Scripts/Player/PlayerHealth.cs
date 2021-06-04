@@ -19,9 +19,7 @@ namespace Player
         public float decreaseFactor = 1.0f;
         public Transform camTransform;
         Vector3 originalPos;
-        public Collider2D colliderPolygon;
         public Collider2D colliderCapsule;
-        public Collider2D colliderCircle;
 
         private Rigidbody2D _body;
 
@@ -104,9 +102,7 @@ namespace Player
             }
             else
             {
-                Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), colliderPolygon);
                 Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), colliderCapsule);
-                Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), colliderCircle);
                 invulnerableCurrentTime += Time.deltaTime;
             }
 
@@ -133,11 +129,12 @@ namespace Player
             {
                 gameObject.GetComponent<PlayerController>().enabled = true;
                 gameObject.GetComponent<PlayerController>().animator.SetBool("Die", false);
-                gameObject.transform.position = respawnPosition.position;
+                
                 health = 7f;
                 deadTimer = 1.5f;
                 dead = false;
                 deadTimerOut = false;
+                gameObject.transform.position = respawnPosition.position;
             }
             else
             {
@@ -147,6 +144,7 @@ namespace Player
                 gameObject.GetComponent<PlayerController>().enabled = false;
                 health = 0;
                 dead = true;
+                FindObjectOfType<audioManager>().Play("PlayerDeath");
             }
         }
 

@@ -1,0 +1,439 @@
+fileFormatVersion: 2
+guid: d1031926bfe0d964da6d160f498590fa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3190746528191306464
+    second: spritesfondo_0
+  - first:
+      213: -3703847136348470329
+    second: spritesfondo_1
+  - first:
+      213: -8312962721904399366
+    second: spritesfondo_2
+  - first:
+      213: -449676665543723600
+    second: spritesfondo_3
+  - first:
+      213: 4852166216181903012
+    second: spritesfondo_4
+  - first:
+      213: 7850961791181398601
+    second: spritesfondo_5
+  - first:
+      213: 7988422903210930812
+    second: spritesfondo_6
+  - first:
+      213: -8911726541775666913
+    second: spritesfondo_7
+  - first:
+      213: -6039649457233742981
+    second: spritesfondo_8
+  - first:
+      213: -9082316328037756104
+    second: spritesfondo_9
+  - first:
+      213: 8683434027786280762
+    second: spritesfondo_10
+  - first:
+      213: -3307193913279363219
+    second: spritesfondo_11
+  - first:
+      213: -959170268281291365
+    second: spritesfondo_12
+  - first:
+      213: -1061083089431930873
+    second: spritesfondo_13
+  - first:
+      213: -6320626826796034223
+    second: spritesfondo_14
+  - first:
+      213: -2600391735441738961
+    second: spritesfondo_15
+  - first:
+      213: 8644159397099606885
+    second: spritesfondo_16
+  - first:
+      213: 207475006138188278
+    second: spritesfondo_17
+  - first:
+      213: -8227399031627126188
+    second: spritesfondo_18
+  - first:
+      213: -7836585594100765312
+    second: spritesfondo_19
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spritesfondo_2
+      rect:
+        serializedVersion: 2
+        x: 3103
+        y: 1614
+        width: 1549
+        height: 2566
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afbe2d9c27c62ac80800000000000000
+      internalID: -8312962721904399366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesfondo_5
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 1754
+        width: 528
+        height: 2304
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9422884272834fc60800000000000000
+      internalID: 7850961791181398601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesfondo_6
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 1751
+        width: 734
+        height: 2391
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c727b755e449cde60800000000000000
+      internalID: 7988422903210930812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesfondo_7
+      rect:
+        serializedVersion: 2
+        x: 2139
+        y: 1575
+        width: 704
+        height: 2567
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f118a063def235480800000000000000
+      internalID: -8911726541775666913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesfondo_9
+      rect:
+        serializedVersion: 2
+        x: 4673
+        y: 1608
+        width: 1227
+        height: 2546
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83354997b6125f180800000000000000
+      internalID: -9082316328037756104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesfondo_10
+      rect:
+        serializedVersion: 2
+        x: 2942
+        y: 298
+        width: 417
+        height: 1330
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f9db0dd31c18870800000000000000
+      internalID: 8683434027786280762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesfondo_12
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 990
+        width: 668
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9d3aff09b750b2f0800000000000000
+      internalID: -959170268281291365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesfondo_13
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 1016
+        width: 669
+        height: 423
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7085c315d864641f0800000000000000
+      internalID: -1061083089431930873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesfondo_14
+      rect:
+        serializedVersion: 2
+        x: 3629
+        y: 1005
+        width: 918
+        height: 337
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 157940f936f9848a0800000000000000
+      internalID: -6320626826796034223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesfondo_15
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 199
+        width: 988
+        height: 608
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f23322c7e7d89ebd0800000000000000
+      internalID: -2600391735441738961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesfondo_16
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 227
+        width: 990
+        height: 607
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5631af54c2936f770800000000000000
+      internalID: 8644159397099606885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesfondo_17
+      rect:
+        serializedVersion: 2
+        x: 3635
+        y: 333
+        width: 918
+        height: 349
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f183a83b6911e200800000000000000
+      internalID: 207475006138188278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesfondo_19
+      rect:
+        serializedVersion: 2
+        x: 4855
+        y: 342
+        width: 719
+        height: 319
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08d2ea31ceade3390800000000000000
+      internalID: -7836585594100765312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
