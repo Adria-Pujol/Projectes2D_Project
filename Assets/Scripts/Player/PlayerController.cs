@@ -88,6 +88,9 @@ namespace Player
         [Header("Animation")] 
         [SerializeField] public Animator animator;
 
+        [Header("Dialog")]
+        private GameObject dialog;
+
         private void Awake()
         {
             _input = new InputPlayer();
@@ -587,11 +590,25 @@ namespace Player
                 }
                 Destroy(collision.gameObject);
             }
+
+            if (collision.CompareTag("Dialog"))
+            {
+                if (collision.CompareTag("Dialog")) dialog = collision.gameObject;
+                dialog.SetActive(true);
+                Debug.Log("entrandoo");
+            }
         }
 
         public void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.CompareTag("Object")) _hasBeenPressed = false;
+
+            if (collision.CompareTag("Dialog"))
+            {
+                if (collision.CompareTag("Dialog")) dialog = collision.gameObject;
+                dialog.SetActive(false);
+                Debug.Log("saliendo");
+            }
         }
 
         public void OnTriggerStay2D(Collider2D collision)

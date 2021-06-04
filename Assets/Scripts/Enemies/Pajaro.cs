@@ -67,7 +67,7 @@ namespace Enemies
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("Player")) _player = null;
+            if (collision.CompareTag("Player")) _player = collision.gameObject.transform;
         }
 
         public void OnTriggerExit2D(Collider2D collision)
