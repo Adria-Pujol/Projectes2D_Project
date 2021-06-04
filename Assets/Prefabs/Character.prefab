@@ -256,8 +256,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -885606441
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2313428118419685932, guid: ec1f4ec2abbf74c4187a6016f9614579, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -320,7 +320,7 @@ MonoBehaviour:
   - nameOfObjPool: Bullet
     prefab: {fileID: 2410756515044996789, guid: 368331c2c1cdbda418c50574596c13ba, type: 3}
     poolSize: 50
-  - nameOfObjPool: Enemy Bullet
+  - nameOfObjPool: EnemyBullet
     prefab: {fileID: 6474345749538438294, guid: 2b9a051026974804f941b695a3455371, type: 3}
     poolSize: 100
 --- !u!114 &7183049525195370735
@@ -378,7 +378,7 @@ MonoBehaviour:
   totalDashTime: 2
   currentDashTime: 0
   dashSpeed: 0
-  initialDashSpeed: 5
+  initialDashSpeed: 3
   animator: {fileID: 9191456027474838662}
 --- !u!114 &6110184999985409410
 MonoBehaviour:
@@ -401,7 +401,7 @@ MonoBehaviour:
   deadTimer: 1.5
   shakeCamera: 0
   shakeDuration: 1
-  shakeAmount: 0.7
+  shakeAmount: 0.5
   decreaseFactor: 1
   camTransform: {fileID: 0}
   colliderCapsule: {fileID: 2246180990999022112}

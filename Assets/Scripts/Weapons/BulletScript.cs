@@ -19,8 +19,6 @@ public class BulletScript : MonoBehaviour
     [SerializeField] private Sprite bullet01;
     [SerializeField] private Sprite bullet02;
 
-    private Sprite sprite;
-
     private GameObject player;
 
     private void Start()
@@ -43,14 +41,14 @@ public class BulletScript : MonoBehaviour
             _timer = timeAlive;
         }
 
-        if (player.GetComponent<PlayerController>().activeWeapon == 1)
+        /*if (player.GetComponent<PlayerController>().activeWeapon == 1)
         {
-            sprite = GameObject.Find("Bullet").GetComponent<SpriteRenderer>().sprite = bullet01;
+            GameObject.Find("Bullet").GetComponent<SpriteRenderer>().sprite = bullet01;
         }
         else if (player.GetComponent<PlayerController>().activeWeapon == 2)
         {
-            sprite = GameObject.Find("Bullet").GetComponent<SpriteRenderer>().sprite = bullet02;
-        }
+            GameObject.Find("Bullet").GetComponent<SpriteRenderer>().sprite = bullet02;
+        }*/
     }
 
     private void OnEnable()
