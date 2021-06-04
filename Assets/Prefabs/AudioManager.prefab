@@ -46,7 +46,7 @@ MonoBehaviour:
   sounds:
   - name: PlayerDeath
     Clip: {fileID: 8300000, guid: 0553ed9d25e46c141a7b77d397be01a6, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 0.5
     loop: 0
     source: {fileID: 0}
@@ -58,8 +58,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MainMusic
     Clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 0.2
+    pitch: 1.5
     loop: 1
     source: {fileID: 0}
   - name: BossMusic
@@ -71,13 +71,13 @@ MonoBehaviour:
   - name: GetHit
     Clip: {fileID: 8300000, guid: 63af0c01f527d2143b587baad67c7be8, type: 3}
     volume: 0.1
-    pitch: 0.7
+    pitch: 1.5
     loop: 0
     source: {fileID: 0}
-  - name: 
-    Clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Collect
+    Clip: {fileID: 8300000, guid: f5877c9d2f5b73947802b9ea2ce732b4, type: 3}
+    volume: 0.3
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 
