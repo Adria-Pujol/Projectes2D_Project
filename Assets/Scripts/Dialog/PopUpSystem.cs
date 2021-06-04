@@ -20,12 +20,13 @@ public class PopUpSystem : MonoBehaviour
     }*/
     private void Start()
     {
-       popUpBox.SetActive(true);
+       popUpBox.SetActive(false);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) popUpBox.SetActive(true);
+        Debug.Log("choco");
         
     }
 
@@ -37,5 +38,6 @@ public class PopUpSystem : MonoBehaviour
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) popUpBox.SetActive(false);
+        Debug.Log("deschoco");
     }
 }
