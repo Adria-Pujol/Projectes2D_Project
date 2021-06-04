@@ -483,6 +483,15 @@ namespace Player
                 }
             }
 
+            if (isWall && isShifting)
+            {
+                animator.SetBool("Climb", true);
+            }
+            else
+            {
+                animator.SetBool("Climb", false);
+            }
+
             if (!_isDashing || _hasDashed)
             {
                 animator.SetBool("Dash", false);

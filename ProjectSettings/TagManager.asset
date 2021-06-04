@@ -15,6 +15,7 @@ TagManager:
   - Platform
   - Bullets
   - EyesColor
+  - Dialog
   layers:
   - Default
   - TransparentFX
