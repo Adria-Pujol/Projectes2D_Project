@@ -1,4 +1,5 @@
 using Enemies;
+using Player;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour
@@ -15,10 +16,18 @@ public class BulletScript : MonoBehaviour
     [SerializeField] private float timeAliveFromCollision;
     private float _timerCollision;
 
+    [SerializeField] private Sprite bullet01;
+    [SerializeField] private Sprite bullet02;
+
+    private Sprite sprite;
+
+    private GameObject player;
+
     private void Start()
     {
         _timer = timeAlive;
         _timerCollision = timeAliveFromCollision;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void FixedUpdate()
@@ -32,6 +41,15 @@ public class BulletScript : MonoBehaviour
         {
             gameObject.SetActive(false);
             _timer = timeAlive;
+        }
+
+        if (player.GetComponent<PlayerController>().activeWeapon == 1)
+        {
+            sprite = GameObject.Find("Bullet").GetComponent<SpriteRenderer>().sprite = bullet01;
+        }
+        else if (player.GetComponent<PlayerController>().activeWeapon == 2)
+        {
+            sprite = GameObject.Find("Bullet").GetComponent<SpriteRenderer>().sprite = bullet02;
         }
     }
 

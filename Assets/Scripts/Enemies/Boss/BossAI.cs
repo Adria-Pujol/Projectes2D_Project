@@ -9,8 +9,8 @@ using Player;
 public class BossAI : MonoBehaviour
 {
     //General Stuff
-    [Header("General Settings")] 
-    [SerializeField] private Transform player;
+    [Header("General Settings")] [SerializeField]
+    private Transform player;
     private Rigidbody2D _body;
     private BossGroundChecker _groundChecker;
     private BossRightGroundChecker _rightGroundChecker;
@@ -22,28 +22,30 @@ public class BossAI : MonoBehaviour
     public bool isDoingSkill = false;
     public float tiredCooldown;
     public float totalTiredCooldown;
-    
+    public bool numberSelected = false;
+
     //Idle State
-    
+
     //Movement State
-    [Header("Movement")] 
-    [SerializeField] private float speed;
+    [Header("Movement")] [SerializeField] private float speed;
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float multiplier;
     private float _slowDown;
     private bool _isGround;
     private bool _isRightGround;
     private bool _isWall;
-    
+
     //Attack1 State
-    [Header("Sprint Attack")] 
-    [SerializeField] private float attack1Cooldown;
+    [Header("Sprint Attack")] [SerializeField]
+    private float attack1Cooldown;
+    private bool isDoingAttack1;
     [SerializeField] private float attack1TotalCooldown;
     public float _sprintSpeed;
 
     //Attack2 State
-    [Header("Roar Rock Fall Attack")] 
-    [SerializeField] private GameObject rock;
+    [Header("Roar Rock Fall Attack")] [SerializeField]
+    private GameObject rock;
+    private bool isDoingAttack2;
     [SerializeField] private float xLeftPoint;
     [SerializeField] private float xRightPoint;
     [SerializeField] private float yDownPoint;
@@ -51,17 +53,18 @@ public class BossAI : MonoBehaviour
     [SerializeField] private float maximumRocks;
     [SerializeField] private float attack2Cooldown;
     [SerializeField] private float attack2TotalCooldown;
-    
+
     //Attack3 State
-    [Header("Slime Attack")] 
-    [SerializeField] private Transform shootingPoint;
+    [Header("Slime Attack")] [SerializeField]
+    private Transform shootingPoint;
+    private bool isDoingAttack3;
     [SerializeField] private float attack3Cooldown;
     [SerializeField] private float attack3TotalCooldown;
-    
+
 
     //Rage State
     public bool isEnrage = false;
-    
+
     //Testing Variables
     private BossInput _inputBoss;
 
@@ -98,82 +101,117 @@ public class BossAI : MonoBehaviour
         _isRightGround = _rightGroundChecker.isRightGround;
         //Check if in front of the boss there is a wall
         _isWall = _wallChecker.isWall;
-        if (!isEnrage)
+
+        if (isEnrage)
         {
-            if (timeBetweenSkills < 0)
+            attack2TotalCooldown = 3;
+        }
+        else
+        {
+            attack2TotalCooldown = 1;
+        }
+        
+        if (timeBetweenSkills <= 0)
+        {
+            GameObject.Find("Exclamation").GetComponent<SpriteRenderer>().enabled = false;
+            GameObject.Find("Exclamation").GetComponent<Animator>().enabled = false;
+            isDoingSkill = true;
+            if (!numberSelected)
             {
-                if (tiredCooldown < 0)
-                {
-                    number = Random.Range(0, 2);
-                    if (number == 0)
-                    {
-                        if (attack1Cooldown >= 0)
-                        {
-                            Attack1State();
-                            attack1Cooldown -= Time.deltaTime;
-                        }
-                    }
-                    else if (number == 1)
-                    {
-                        if (attack2Cooldown >= 0)
-                        {
-                            Attack2State();
-                            attack2Cooldown -= Time.deltaTime;
-                        } 
-                    }
-                }
-                else
-                {
-                    _body.velocity = new Vector2(0, 0);
-                    tiredCooldown -= Time.deltaTime;
-                }
-                tiredCooldown = totalTiredCooldown;
-            }
-            else 
-            {
-                MovementState();
-                timeBetweenSkills -= Time.deltaTime;
-                attack1Cooldown = attack1TotalCooldown;
-                attack2Cooldown = attack2TotalCooldown;
+                number = Random.Range(0, 2);
+                numberSelected = true;
             }
         }
-        else if (isEnrage)
+        else
         {
-            if (timeBetweenSkills < 0)
+            MovementState();
+            timeBetweenSkills -= 0.1f;
+            attack1Cooldown = attack1TotalCooldown;
+            attack2Cooldown = attack2TotalCooldown;
+            attack3Cooldown = attack3TotalCooldown;
+            numberSelected = false;
+            if (timeBetweenSkills <= 8)
             {
-                if (tiredCooldown < 0)
-                {
-                    number = Random.Range(0, 2);
-                    if (number == 0)
-                    {
-                        if (attack3Cooldown >= 0)
-                        {
-                            Attack3State();
-                            attack3Cooldown -= Time.deltaTime;
-                        }
-                    }
-                    else if (number == 1)
-                    {
-                        if (attack2Cooldown >= 0)
-                        {
-                            Attack2State();
-                            attack2Cooldown -= Time.deltaTime;
-                        } 
-                    }
-                }
-                else
-                {
-                    _body.velocity = new Vector2(0, 0);
-                    tiredCooldown -= Time.deltaTime;
-                }
-                //tiredCooldown = totalTiredCooldown;
+                GameObject.Find("Exclamation").GetComponent<SpriteRenderer>().enabled = true;
+                GameObject.Find("Exclamation").GetComponent<Animator>().enabled = true;
             }
-            else 
+        }
+
+        if (isDoingSkill && !isEnrage)
+        {
+            if (number == 0)
             {
-                MovementState();
-                timeBetweenSkills -= Time.deltaTime;
-                attack2Cooldown = attack2TotalCooldown;
-                attack3Cooldown = attack3TotalCooldown;
+                isDoingAttack1 = true;
+                isDoingAttack2 = false;
+                isDoingAttack3 = false;
+            }
+            else if (number == 1)
+            {
+                isDoingAttack1 = false;
+                isDoingAttack2 = true;
+                isDoingAttack3 = false;
+            }
+        }
+        else if (isDoingSkill && isEnrage)
+        {
+            if (number == 0)
+            {
+                isDoingAttack1 = false;
+                isDoingAttack2 = true;
+                isDoingAttack3 = false;
+            }
+            else if (number == 1)
+            {
+                isDoingAttack1 = false;
+                isDoingAttack2 = false;
+                isDoingAttack3 = true;
+            }
+        }
+
+        if (isDoingAttack1)
+        {
+            if (attack1Cooldown > 0)
+            {
+                Attack1State();
+                attack1Cooldown -= 0.1f;
+            }
+            else if (attack1Cooldown <= 0)
+            {
+                isDoingAttack1 = false;
+                isDoingSkill = false;
+                timeBetweenSkills = totalSkillTime;
+            }
+        }
+        else if (isDoingAttack2)
+        {
+            if (attack2Cooldown >= 0)
+            {
+                _body.velocity = new Vector2(0, _body.velocity.y);
+                Attack2State();
+                attack2Cooldown -= 0.1f;
+            }
+            else if (attack2Cooldown < 0)
+            {
+                
+                isDoingAttack2 = false;
+                isDoingSkill = false;
+                timeBetweenSkills = totalSkillTime;
+            }
+        }
+        else if (isDoingAttack3)
+        {
+            if (attack3Cooldown >= 0)
+            {
+                _body.velocity = new Vector2(0, _body.velocity.y);
+                Attack3State();
+                attack3Cooldown -= 0.1f;
+            }
+            else if (attack3Cooldown < 0)
+            {
+                
+                isDoingAttack3 = false;
+                isDoingSkill = false;
+                timeBetweenSkills = totalSkillTime;
             }
         }
     }
@@ -185,18 +223,21 @@ public class BossAI : MonoBehaviour
         {
             jumpSpeed = 240;
             multiplier = 160;
+            speed = 100;
         }
         else
         {
+            speed = 70;
             jumpSpeed = 120;
             multiplier = 80;
         }
-        
+
         if (_isWall) Flip();
         if (_isRightGround)
         {
             Jump();
         }
+
         var velocity = _body.velocity;
         velocity = isFacingRight ? new Vector2(speed, velocity.y) : new Vector2(-speed, velocity.y);
         _body.velocity = velocity;
@@ -211,6 +252,7 @@ public class BossAI : MonoBehaviour
         {
             Jump();
         }
+
         var velocity = _body.velocity;
         velocity = isFacingRight ? new Vector2(_sprintSpeed, velocity.y) : new Vector2(-_sprintSpeed, velocity.y);
         _body.velocity = velocity;
@@ -218,43 +260,24 @@ public class BossAI : MonoBehaviour
 
     private void Attack2State()
     {
-        InstantiateRock();
-    }
-
-    private void Attack3State()
-    {
-        shootingPoint.position = new Vector2(Random.Range(shootingPoint.position.x - 10, shootingPoint.position.x + 10),
-            Random.Range(shootingPoint.position.y - 10, shootingPoint.position.y + 10)); 
-        BulletPooler.instance.SpawnFromPool("EnemyBullet", shootingPoint.position, shootingPoint.rotation);
-    }
-
-    void InstantiateRock()
-    {
-        Vector2 positionFromSpawnZone = new Vector2(Random.Range(xLeftPoint, xRightPoint), Random.Range(yDownPoint, yTopPoint));
+        Vector2 positionFromSpawnZone =
+            new Vector2(Random.Range(xLeftPoint, xRightPoint), Random.Range(yDownPoint, yTopPoint));
         GameObject rockSpawned = Instantiate(rock, positionFromSpawnZone, rock.transform.rotation);
         rockSpawned.GetComponent<Rigidbody2D>().velocity = new Vector2(0, Random.Range(-50, -200));
     }
 
-    /*private void Attack1(InputAction.CallbackContext ctx)
+    private void Attack3State()
     {
-        isAttacking1 = ctx.ReadValue<float>() != 0;
+        shootingPoint.position = new Vector2(Random.Range(shootingPoint.position.x - 1, shootingPoint.position.x + 1),
+            Random.Range(shootingPoint.position.y - 1, shootingPoint.position.y + 1));
+        BulletPooler.instance.SpawnFromPool("EnemyBullet", shootingPoint.position, shootingPoint.rotation);
     }
-    
-    private void Attack2(InputAction.CallbackContext ctx)
-    {
-        isAttacking2 = ctx.ReadValue<float>() != 0;
-    }*/
-    
-    /*private void Attack3(InputAction.CallbackContext ctx)
-    {
-        isAttacking3 = ctx.ReadValue<float>() != 0;
-    }*/
     //Triggers
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) player = collision.gameObject.transform;
     }
-    
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player")) player = null;
@@ -264,13 +287,14 @@ public class BossAI : MonoBehaviour
     {
         if (collision.CompareTag("Player")) player = null;
     }
-    
+
     //Auxiliar Functions
     private void Jump()
     {
         _body.velocity = new Vector2(0, jumpSpeed);
         _body.gravityScale = multiplier;
     }
+
     private void Flip()
     {
         isFacingRight = !isFacingRight;
