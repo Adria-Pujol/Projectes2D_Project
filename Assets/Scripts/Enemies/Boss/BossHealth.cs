@@ -2,16 +2,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossHealth : MonoBehaviour
 {
-    public float health = 100f;
+    public float health;
+    public Slider slider;
 
     public void FixedUpdate()
     {
-        if (health <= 50)
+        slider.value = health;
+        if (health <= 20)
         {
             GetComponent<BossAI>().isEnrage = true;
+        }
+        else
+        {
+            GetComponent<BossAI>().isEnrage = false;
         }
     }
 
