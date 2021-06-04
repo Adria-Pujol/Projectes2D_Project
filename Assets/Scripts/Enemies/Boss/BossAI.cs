@@ -105,10 +105,12 @@ public class BossAI : MonoBehaviour
         if (isEnrage)
         {
             attack2TotalCooldown = 3;
+            GetComponent<SpriteRenderer>().color = Color.red;
         }
         else
         {
             attack2TotalCooldown = 1;
+            GetComponent<SpriteRenderer>().color = Color.white;
         }
         
         if (timeBetweenSkills <= 0)

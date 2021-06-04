@@ -73,40 +73,46 @@ namespace Player
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (!collision.CompareTag("Enemy")) return;
-            if (canRecieveDmg)
+            if (collision.CompareTag("Enemy") || collision.CompareTag("Boss"))
             {
-                health -= 1;
-                invulnerableCurrentTime = 0f;
-                canRecieveDmg = false;
-                ShakeCamera();
+                if (canRecieveDmg)
+                {
+                    health -= 1;
+                    invulnerableCurrentTime = 0f;
+                    canRecieveDmg = false;
+                    ShakeCamera();
+                }
+
+                if (health <= 0) Death();
             }
 
-            if (health <= 0) Death();
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.CompareTag("Enemy")) invulnerableCurrentTime += Time.deltaTime;
+            if (collision.CompareTag("Enemy") || collision.CompareTag("Boss")) invulnerableCurrentTime += Time.deltaTime;
         }
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            if (!collision.CompareTag("Enemy")) return;
-            if (canRecieveDmg)
+            if (collision.CompareTag("Enemy") || collision.CompareTag("Boss"))
             {
-                health -= 1;
-                invulnerableCurrentTime = 0f;
-                canRecieveDmg = false;
-                ShakeCamera();
-            }
-            else
-            {
-                Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), colliderCapsule);
-                invulnerableCurrentTime += Time.deltaTime;
-            }
+                if (canRecieveDmg)
+                {
+                    health -= 1;
+                    invulnerableCurrentTime = 0f;
+                    canRecieveDmg = false;
+                    ShakeCamera();
+                }
+                else
+                {
+                    Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), colliderCapsule);
+                    invulnerableCurrentTime += Time.deltaTime;
+                }
 
-            if (health <= 0) Death();
+                if (health <= 0) Death();
+            }
+            
         }
 
         public void TakeDamage(float dmg)

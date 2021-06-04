@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BossHealth : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class BossHealth : MonoBehaviour
 
     public void Death()
     {
+        SceneManager.LoadScene(0);
         Destroy(gameObject);
     }
 }

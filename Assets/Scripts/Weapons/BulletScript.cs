@@ -65,6 +65,14 @@ public class BulletScript : MonoBehaviour
             gameObject.SetActive(false);
         }
 
+        if (collision.CompareTag("Boss"))
+        {
+            var boss = collision.GetComponent<BossHealth>();
+            if (boss != null) boss.TakeDamage(bulletDamage);
+            gameObject.SetActive(false);
+            
+        }
+
         if (collision.CompareTag("Ground") || collision.CompareTag("Wall")) gameObject.SetActive(false);
 
         if (collision.CompareTag("Object"))

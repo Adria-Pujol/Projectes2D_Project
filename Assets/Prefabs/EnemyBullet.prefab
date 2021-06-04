@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263be65080861e448866882369506de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 80
+  bulletSpeed: 160
   bulletDamage: 1
   body: {fileID: 9082880966041955918}
   groundLayer:
