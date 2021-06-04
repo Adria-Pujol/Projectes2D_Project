@@ -19,7 +19,7 @@ namespace Enemies
 
         private GeneralChecker _generalChecker;
         private EnemyGroundChecker _groundChecker;
-        private bool _isFacingRight = true;
+        private bool _isFacingRight = false;
         private Transform _player;
 
         public void Awake()
