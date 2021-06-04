@@ -90,6 +90,7 @@ namespace Player
 
         [Header("Dialog")]
         private GameObject dialog;
+        private PopUpController dialogController;
 
         private void Awake()
         {
@@ -603,8 +604,7 @@ namespace Player
             if (collision.CompareTag("Dialog"))
             {
                 if (collision.CompareTag("Dialog")) dialog = collision.gameObject;
-                dialog.SetActive(true);
-                Debug.Log("entrandoo");
+                dialog.GetComponent<PopUpController>().abrir();
             }
         }
 
@@ -615,8 +615,7 @@ namespace Player
             if (collision.CompareTag("Dialog"))
             {
                 if (collision.CompareTag("Dialog")) dialog = collision.gameObject;
-                dialog.SetActive(false);
-                Debug.Log("saliendo");
+                dialog.GetComponent<PopUpController>().cerrar();
             }
         }
 

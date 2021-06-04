@@ -9,7 +9,7 @@ public class PopUpSystem : MonoBehaviour
 
     private void Start()
     {
-       popUpBox.SetActive(true);
+       popUpBox.SetActive(false);
     }
 
 

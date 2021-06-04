@@ -51,24 +51,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Fondo Cielo
-    uniqueID: 3191546889
-    locked: 0
-  - name: Background -2
-    uniqueID: 285115891
-    locked: 0
-  - name: Background -1
-    uniqueID: 655891579
-    locked: 0
-  - name: Background 0
-    uniqueID: 2147965041
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Character
-    uniqueID: 3409360855
-    locked: 0
-  - name: Foreground
-    uniqueID: 1837036267
     locked: 0
