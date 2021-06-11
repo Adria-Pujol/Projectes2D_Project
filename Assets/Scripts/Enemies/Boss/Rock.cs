@@ -113,7 +113,7 @@ namespace Enemies.Boss
                 }
             }
 
-            if (collision.CompareTag("Ground") || collision.CompareTag("Wall"))
+            if ( (collision.CompareTag("Ground") || collision.CompareTag("Wall") ) && GetComponent<AudioSource>().isPlaying == false)
             {
                 if (animTime <= 0)
                 {
@@ -123,6 +123,7 @@ namespace Enemies.Boss
                 {
                     body.velocity = new Vector2(0, 0);
                     body.gravityScale = 0;
+                    GetComponent<AudioSource>().Play();
                     rockAnim.SetBool("IsBoom", true);
                     animTime -= Time.deltaTime;
                 }
