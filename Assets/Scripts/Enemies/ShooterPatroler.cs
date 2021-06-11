@@ -8,7 +8,7 @@ namespace Enemies
     {
         [Header("Movement")] public float speed;
 
-        [SerializeField] private bool isGround;
+        [SerializeField] public bool isGround;
 
         [SerializeField] private bool isWall;
 
@@ -18,7 +18,7 @@ namespace Enemies
 
         [SerializeField] public float timer;
 
-        private Rigidbody2D _body;
+        public Rigidbody2D _body;
 
         private GeneralChecker _generalChecker;
         private EnemyGroundChecker _groundChecker;
