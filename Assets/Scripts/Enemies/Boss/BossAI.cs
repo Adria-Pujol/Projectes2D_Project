@@ -11,7 +11,7 @@ public class BossAI : MonoBehaviour
     //General Stuff
     [Header("General Settings")] [SerializeField]
     private Transform player;
-    private Rigidbody2D _body;
+    public Rigidbody2D _body;
     private BossGroundChecker _groundChecker;
     private BossRightGroundChecker _rightGroundChecker;
     private BossWallChecker _wallChecker;
@@ -31,7 +31,7 @@ public class BossAI : MonoBehaviour
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float multiplier;
     private float _slowDown;
-    private bool _isGround;
+    public bool _isGround;
     private bool _isRightGround;
     private bool _isWall;
 
