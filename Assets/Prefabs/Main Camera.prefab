@@ -1106,13 +1106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd52a9eedf57d724ea9a9a92f950fef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullHeart: {fileID: 0}
-  noHeart: {fileID: 0}
-  topCapacity: {fileID: 0}
-  topHalfCapacity: {fileID: 0}
-  halfCapacity: {fileID: 0}
-  lowHalfCapacity: {fileID: 0}
-  lowCapacity: {fileID: 0}
+  fullHeart: {fileID: 8397251002700494110, guid: 0039c377371733d4e904d3219937cea5, type: 3}
+  noHeart: {fileID: 5089364846998249908, guid: 0039c377371733d4e904d3219937cea5, type: 3}
+  topCapacity: {fileID: -6591391532334562812, guid: d3c8b392843c3584a8b0fdbf70cf65d4, type: 3}
+  topHalfCapacity: {fileID: -659235172055638302, guid: d3c8b392843c3584a8b0fdbf70cf65d4, type: 3}
+  halfCapacity: {fileID: 1234090061900903343, guid: d3c8b392843c3584a8b0fdbf70cf65d4, type: 3}
+  lowHalfCapacity: {fileID: 3385968072985191254, guid: d3c8b392843c3584a8b0fdbf70cf65d4, type: 3}
+  lowCapacity: {fileID: 6746035743316160505, guid: d3c8b392843c3584a8b0fdbf70cf65d4, type: 3}
 --- !u!114 &7670103262350410084
 MonoBehaviour:
   m_ObjectHideFlags: 0

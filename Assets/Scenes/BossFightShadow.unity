@@ -1379,34 +1379,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 6900414821933932693, guid: 104f60a96269a9c499bc4e85e3820c59, type: 3}
-      propertyPath: topCapacity
-      value: 
-      objectReference: {fileID: -6591391532334562812, guid: d3c8b392843c3584a8b0fdbf70cf65d4, type: 3}
-    - target: {fileID: 6900414821933932693, guid: 104f60a96269a9c499bc4e85e3820c59, type: 3}
-      propertyPath: topHalfCapacity
-      value: 
-      objectReference: {fileID: -659235172055638302, guid: d3c8b392843c3584a8b0fdbf70cf65d4, type: 3}
-    - target: {fileID: 6900414821933932693, guid: 104f60a96269a9c499bc4e85e3820c59, type: 3}
-      propertyPath: halfCapacity
-      value: 
-      objectReference: {fileID: 1234090061900903343, guid: d3c8b392843c3584a8b0fdbf70cf65d4, type: 3}
-    - target: {fileID: 6900414821933932693, guid: 104f60a96269a9c499bc4e85e3820c59, type: 3}
-      propertyPath: lowHalfCapacity
-      value: 
-      objectReference: {fileID: 3385968072985191254, guid: d3c8b392843c3584a8b0fdbf70cf65d4, type: 3}
-    - target: {fileID: 6900414821933932693, guid: 104f60a96269a9c499bc4e85e3820c59, type: 3}
-      propertyPath: lowCapacity
-      value: 
-      objectReference: {fileID: 6746035743316160505, guid: d3c8b392843c3584a8b0fdbf70cf65d4, type: 3}
-    - target: {fileID: 6900414821933932693, guid: 104f60a96269a9c499bc4e85e3820c59, type: 3}
-      propertyPath: fullHeart
-      value: 
-      objectReference: {fileID: 8397251002700494110, guid: 0039c377371733d4e904d3219937cea5, type: 3}
-    - target: {fileID: 6900414821933932693, guid: 104f60a96269a9c499bc4e85e3820c59, type: 3}
-      propertyPath: noHeart
-      value: 
-      objectReference: {fileID: 5089364846998249908, guid: 0039c377371733d4e904d3219937cea5, type: 3}
     - target: {fileID: 7456686049074766269, guid: 104f60a96269a9c499bc4e85e3820c59, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -10.799988
