@@ -9,17 +9,43 @@ public class SceneController : MonoBehaviour
 {
     [SerializeField] private GameObject HUD;
     [SerializeField] public float currentScene;
+    [SerializeField] private Animator animator;
+    private bool hasBeenFaded = false;
+    [SerializeField] private float timer = 1.0f;
+
+    public void Awake()
+    {
+        currentScene = SceneManager.GetActiveScene().buildIndex;
+    }
 
     private void FixedUpdate()
     {
-        currentScene = SceneManager.GetActiveScene().buildIndex;
-        if (SceneManager.GetActiveScene().buildIndex == 5)
+        if (!hasBeenFaded)
         {
-            HUD.transform.Find("HealthBar").gameObject.SetActive(true);
+            if (timer > 0)
+            {
+                animator.Play("Fade_Out");
+                hasBeenFaded = true;
+                timer = 1.0f;
+            }
+            else
+            {
+                timer -= Time.deltaTime;
+            }
+            
         }
         else
         {
-            HUD.transform.Find("HealthBar").gameObject.SetActive(false);
+            animator.Play("Fade_Idle");
+            currentScene = SceneManager.GetActiveScene().buildIndex;
+            if (currentScene == 5)
+            {
+                HUD.transform.Find("HealthBar").gameObject.SetActive(true);
+            }
+            else
+            {
+                HUD.transform.Find("HealthBar").gameObject.SetActive(false);
+            } 
         }
     }
 
@@ -27,7 +53,17 @@ public class SceneController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            FadeLevel();
         }
+    }
+    
+    public void FadeLevel()
+    {
+        animator.SetTrigger("FadeOut");
+    }
+
+    public void XFadeFinished()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

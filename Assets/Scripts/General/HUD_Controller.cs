@@ -61,7 +61,7 @@ public class HUD_Controller : MonoBehaviour
     {
        CheckHealthHUD();
 
-        weapon.text = "Weapon: " + player.GetComponent<PlayerController>().activeWeapon;
+        weapon.text = "Weapon: " + PlayerController.activeWeapon;
         
         CheckAmmunationHUD();
 
@@ -72,7 +72,7 @@ public class HUD_Controller : MonoBehaviour
 
     private void CheckAmmunationHUD()
     {
-        if (player.GetComponent<PlayerController>().activeWeapon == 1)
+        if (PlayerController.activeWeapon == 1)
         {
             energy.sprite = topCapacity;
         }

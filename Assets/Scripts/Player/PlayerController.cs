@@ -48,7 +48,7 @@ namespace Player
         [SerializeField]
         private bool _isShooting;
         public float timerReset = 0.2f;
-        public int activeWeapon = 1;
+        public static int activeWeapon = 1;
         public bool hasSwapped;
         public float swapTime;
         public float totalSwapTime;
