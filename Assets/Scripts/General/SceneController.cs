@@ -8,11 +8,12 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     [SerializeField] private GameObject HUD;
-    [SerializeField] private bool topZone;
+    [SerializeField] public float currentScene;
 
     private void FixedUpdate()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 3 || SceneManager.GetActiveScene().buildIndex == 4)
+        currentScene = SceneManager.GetActiveScene().buildIndex;
+        if (SceneManager.GetActiveScene().buildIndex == 5)
         {
             HUD.transform.Find("HealthBar").gameObject.SetActive(true);
         }
@@ -26,15 +27,7 @@ public class SceneController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            DontDestroyOnLoad(HUD);
-            if (topZone)
-            {
-                SceneManager.LoadScene(4);
-            }
-            else
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

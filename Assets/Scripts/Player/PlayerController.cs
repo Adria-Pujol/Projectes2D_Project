@@ -12,7 +12,7 @@ namespace Player
         [Header("General")]
         public Rigidbody2D _body;
         public InputPlayer _input;
-        public int collectables;
+        public static int collectables;
         private GroundChecker _groundChecker;
         private GroundChecker _groundChecker1;
         private WallChecker _wallChecker;
@@ -52,7 +52,7 @@ namespace Player
         public bool hasSwapped;
         public float swapTime;
         public float totalSwapTime;
-        public float ammunition;
+        public static float ammunition;
         public float timer;
         public float startTime;
         private bool _resetShooting = true;
@@ -114,6 +114,7 @@ namespace Player
             _wallChecker = transform.Find("WallChecker").GetComponent<WallChecker>();
             _weaponScript = gameObject.GetComponent<WeaponScript>();
             _body.gravityScale = shortJumpMult;
+            ammunition = 100;
         }
 
         private void FixedUpdate()
@@ -154,8 +155,8 @@ namespace Player
                 {
                     if (fallTimer <= 0)
                     {
-                        GetComponent<PlayerHealth>().health -= 1;
-                        if (GetComponent<PlayerHealth>().health == 0)
+                        PlayerHealth.health -= 1;
+                        if (PlayerHealth.health == 0)
                         {
                             GetComponent<PlayerHealth>().Death();
                         }
@@ -164,7 +165,7 @@ namespace Player
                 }
             }
             
-            if (GetComponent<PlayerHealth>().health == 0)
+            if (PlayerHealth.health == 0)
             {
                 animator.SetBool("Die", true);
                 GetComponent<PlayerHealth>().Death();

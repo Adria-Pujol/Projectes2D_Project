@@ -4,7 +4,7 @@ namespace Player
 {
     public class PlayerHealth : MonoBehaviour
     {
-        public float health = 7f;
+        public static float health = 7f;
         public float invulnerableTotalTime;
         public float invulnerableCurrentTime;
         public bool canRecieveDmg;

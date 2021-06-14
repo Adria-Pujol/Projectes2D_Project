@@ -270,9 +270,9 @@ public class BossAI : MonoBehaviour
 
     private void Attack3State()
     {
-        shootingPoint.position = new Vector2(Random.Range(shootingPoint.position.x - 1, shootingPoint.position.x + 1),
-            Random.Range(shootingPoint.position.y - 1, shootingPoint.position.y + 1));
-        BulletPooler.instance.SpawnFromPool("EnemyBullet", shootingPoint.position, shootingPoint.rotation);
+        Vector2 randomPosition = new Vector2(Random.Range(shootingPoint.position.x - 7, shootingPoint.position.x + 7),
+            Random.Range(shootingPoint.position.y - 7, shootingPoint.position.y + 7));
+        BulletPooler.instance.SpawnFromPool("EnemyBullet", randomPosition, shootingPoint.rotation);
     }
     //Triggers
     private void OnTriggerEnter2D(Collider2D collision)

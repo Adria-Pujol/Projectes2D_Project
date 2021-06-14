@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: d3c8b392843c3584a8b0fdbf70cf65d4
+guid: a339eef392f3ec04cb0da48c95813af9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6591391532334562812
-    second: Hud_energy_0
+      213: 4089136868727127036
+    second: Hud_energy_fixed_0
   - first:
-      213: -659235172055638302
-    second: Hud_energy_1
+      213: -8738579548880633131
+    second: Hud_energy_fixed_1
   - first:
-      213: 1234090061900903343
-    second: Hud_energy_2
+      213: 8221006001562647173
+    second: Hud_energy_fixed_2
   - first:
-      213: 3385968072985191254
-    second: Hud_energy_3
+      213: -6214882698346457025
+    second: Hud_energy_fixed_3
   - first:
-      213: 6746035743316160505
-    second: Hud_energy_4
+      213: -7830759496433012232
+    second: Hud_energy_fixed_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -78,7 +78,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -90,7 +90,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -104,106 +104,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hud_energy_0
+      name: Hud_energy_fixed_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 580
-        height: 1200
+        x: 66
+        y: 234
+        width: 491
+        height: 753
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4024ea3f25ca684a0800000000000000
-      internalID: -6591391532334562812
+      spriteID: cfbfe6221588fb830800000000000000
+      internalID: 4089136868727127036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hud_energy_1
+      name: Hud_energy_fixed_1
       rect:
         serializedVersion: 2
-        x: 580
-        y: 0
-        width: 580
-        height: 1200
+        x: 638
+        y: 240
+        width: 483
+        height: 756
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ee1e229a1de9d6f0800000000000000
-      internalID: -659235172055638302
+      spriteID: 5d20a7303345ab680800000000000000
+      internalID: -8738579548880633131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hud_energy_2
+      name: Hud_energy_fixed_2
       rect:
         serializedVersion: 2
-        x: 1160
-        y: 0
-        width: 580
-        height: 1200
+        x: 1185
+        y: 242
+        width: 487
+        height: 754
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa371707f5e502110800000000000000
-      internalID: 1234090061900903343
+      spriteID: 58afe73d661e61270800000000000000
+      internalID: 8221006001562647173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hud_energy_3
+      name: Hud_energy_fixed_3
       rect:
         serializedVersion: 2
-        x: 1740
-        y: 0
-        width: 580
-        height: 1200
+        x: 1734
+        y: 255
+        width: 485
+        height: 751
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 653a813d5006dfe20800000000000000
-      internalID: 3385968072985191254
+      spriteID: f38965c1d1d40c9a0800000000000000
+      internalID: -6214882698346457025
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hud_energy_4
+      name: Hud_energy_fixed_4
       rect:
         serializedVersion: 2
-        x: 2320
-        y: 0
-        width: 580
-        height: 1200
+        x: 2302
+        y: 253
+        width: 490
+        height: 751
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ffa27a34cbbe9d50800000000000000
-      internalID: 6746035743316160505
+      spriteID: 8f1f7952abd835390800000000000000
+      internalID: -7830759496433012232
       vertices: []
       indices: 
       edges: []

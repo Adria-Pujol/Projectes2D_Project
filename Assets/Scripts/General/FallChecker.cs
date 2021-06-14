@@ -10,7 +10,7 @@ public class FallChecker : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.transform.position = respawnPoint.position;
-            collision.GetComponent<PlayerHealth>().health -= 1;
+            PlayerHealth.health -= 1;
         }
     }
 }
