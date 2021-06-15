@@ -51,10 +51,10 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: MenuMusic
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 5319f5673b3be1c4f995dd2d1e815802, type: 3}
     volume: 0
     pitch: 0
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: MainMusic
     Clip: {fileID: 0}
