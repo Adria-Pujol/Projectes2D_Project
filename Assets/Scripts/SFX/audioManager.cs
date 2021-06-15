@@ -1,6 +1,7 @@
 ﻿using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
 public class audioManager : MonoBehaviour{
@@ -37,7 +38,15 @@ public class audioManager : MonoBehaviour{
 
     public void Start()
     {
-        Play("MenuMusic");
+        Play("MainMusic");
+    }
+
+    public void FixedUpdate()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            Stop("MainMusic");
+        }
     }
 
 
@@ -53,7 +62,21 @@ public class audioManager : MonoBehaviour{
         }
 
         s.source.Play();
+    }
 
+    public void Stop(string name)
+    {
+
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound: " + name + " not found");
+
+            return;
+        }
+
+        s.source.Stop();
     }
 
 }

@@ -50,22 +50,16 @@ MonoBehaviour:
     pitch: 0.5
     loop: 0
     source: {fileID: 0}
-  - name: MenuMusic
-    Clip: {fileID: 8300000, guid: 5319f5673b3be1c4f995dd2d1e815802, type: 3}
-    volume: 0
-    pitch: 0
-    loop: 1
-    source: {fileID: 0}
   - name: MainMusic
-    Clip: {fileID: 0}
-    volume: 0.2
-    pitch: 1.5
+    Clip: {fileID: 8300000, guid: 67fdb441b5dc60e4eaf196341cf25067, type: 3}
+    volume: 0.7
+    pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: BossMusic
-    Clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    Clip: {fileID: 8300000, guid: 93d11c16838040e488426a0369bc6b50, type: 3}
+    volume: 0.5
+    pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: GetHit
