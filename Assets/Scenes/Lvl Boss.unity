@@ -1368,6 +1368,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 1890083180512894812, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 93d11c16838040e488426a0369bc6b50, type: 3}
+    - target: {fileID: 1890083180512894812, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1890083180512894812, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1890083180512894812, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2682611539189941893, guid: 06a1450d85b9f4f4594f29fb1e2155a2, type: 3}
       propertyPath: m_IsActive
       value: 1
