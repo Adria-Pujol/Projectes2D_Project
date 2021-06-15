@@ -10,8 +10,6 @@ public class audioManager : MonoBehaviour{
 
     public static audioManager instance;
 
-    public AudioMixer audioMixer;
-
     // Start is called before the first frame update
     void Awake() {
 
@@ -56,11 +54,6 @@ public class audioManager : MonoBehaviour{
 
         s.source.Play();
 
-    }
-
-    public void SetVolume(float volume)
-    {
-        audioMixer.SetFloat("volume", volume);
     }
 
 }
