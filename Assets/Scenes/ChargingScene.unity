@@ -672,7 +672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb82d00666e7e14e819a47de5fb6dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   jumpSpeed: 8
   multiplier: 4
   animator: {fileID: 452477770}
@@ -1855,7 +1855,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8758845025200611294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.919539, y: -5.527152, z: 0}
+  m_LocalPosition: {x: 9.87, y: -5.527152, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1891,5 +1891,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8702cff2b67f0045b0830da536d7114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 971413632}
   timer: 1

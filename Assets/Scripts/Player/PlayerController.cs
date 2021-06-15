@@ -495,6 +495,7 @@ namespace Player
             if (isWall && isShifting)
             {
                 animator.SetBool("Climb", true);
+                animator.SetBool("Slide", false);
             }
 
             if (!_isDashing || _hasDashed)
