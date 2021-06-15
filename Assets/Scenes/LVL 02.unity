@@ -3044,6 +3044,10 @@ PrefabInstance:
       propertyPath: HUD
       value: 
       objectReference: {fileID: 840660374}
+    - target: {fileID: 8758845024799734584, guid: 5650f47dd8f10a54190e51e7d963bcf4, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 209768726}
     - target: {fileID: 8758845024799734585, guid: 5650f47dd8f10a54190e51e7d963bcf4, type: 3}
       propertyPath: m_Name
       value: NextLevel
@@ -3110,6 +3114,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5650f47dd8f10a54190e51e7d963bcf4, type: 3}
+--- !u!95 &209768726 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2420035500863542091, guid: 5650f47dd8f10a54190e51e7d963bcf4, type: 3}
+  m_PrefabInstance: {fileID: 209768725}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &209926600
 GameObject:
   m_ObjectHideFlags: 0

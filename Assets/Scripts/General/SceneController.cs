@@ -9,9 +9,6 @@ public class SceneController : MonoBehaviour
 {
     [SerializeField] private GameObject HUD;
     [SerializeField] public float currentScene;
-    [SerializeField] private Animator animator;
-    private bool hasBeenFaded = false;
-    [SerializeField] private float timer = 1.0f;
 
     public void Awake()
     {
@@ -20,47 +17,26 @@ public class SceneController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!hasBeenFaded)
+        
+        currentScene = SceneManager.GetActiveScene().buildIndex;
+        if (currentScene == 5)
         {
-            if (timer > 0)
-            {
-                animator.Play("Fade_Out");
-                hasBeenFaded = true;
-                timer = 1.0f;
-            }
-            else
-            {
-                timer -= Time.deltaTime;
-            }
-            
+            HUD.transform.Find("HealthBar").gameObject.SetActive(true);
         }
         else
         {
-            animator.Play("Fade_Idle");
-            currentScene = SceneManager.GetActiveScene().buildIndex;
-            if (currentScene == 5)
-            {
-                HUD.transform.Find("HealthBar").gameObject.SetActive(true);
-            }
-            else
-            {
-                HUD.transform.Find("HealthBar").gameObject.SetActive(false);
-            } 
-        }
+            HUD.transform.Find("HealthBar").gameObject.SetActive(false);
+        } 
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            FadeLevel();
+            XFadeFinished();
         }
     }
     
-    public void FadeLevel()
-    {
-        animator.SetTrigger("FadeOut");
-    }
 
     public void XFadeFinished()
     {

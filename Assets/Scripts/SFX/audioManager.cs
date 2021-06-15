@@ -1,6 +1,7 @@
 ﻿using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class audioManager : MonoBehaviour{
 
@@ -8,6 +9,8 @@ public class audioManager : MonoBehaviour{
     public Sound[] sounds;
 
     public static audioManager instance;
+
+    public AudioMixer audioMixer;
 
     // Start is called before the first frame update
     void Awake() {
@@ -34,6 +37,12 @@ public class audioManager : MonoBehaviour{
 
     }
 
+    public void Start()
+    {
+        Play("MenuMusic");
+    }
+
+
     public void Play (string name) {
 
         Sound s =  Array.Find(sounds, sound => sound.name == name);
@@ -49,5 +58,9 @@ public class audioManager : MonoBehaviour{
 
     }
 
+    public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("volume", volume);
+    }
 
 }

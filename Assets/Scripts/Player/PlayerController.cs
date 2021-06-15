@@ -52,7 +52,7 @@ namespace Player
         public bool hasSwapped;
         public float swapTime;
         public float totalSwapTime;
-        public static float ammunition;
+        public static int ammunition;
         public float timer;
         public float startTime;
         private bool _resetShooting = true;
@@ -468,6 +468,7 @@ namespace Player
             {
                 case true when !isShifting && !_isTopWall:
                     _body.velocity = new Vector2(_body.velocity.x, -slideSpeed * Time.deltaTime);
+                    animator.SetBool("Slide", true);
                     break;
                 case true when isShifting && !isGround && !_isTopWall:
                 {
@@ -485,13 +486,15 @@ namespace Player
                 }
             }
 
+            if (!isWall || isGround)
+            {
+                animator.SetBool("Climb", false);
+                animator.SetBool("Slide", false);
+            }
+
             if (isWall && isShifting)
             {
                 animator.SetBool("Climb", true);
-            }
-            else
-            {
-                animator.SetBool("Climb", false);
             }
 
             if (!_isDashing || _hasDashed)
@@ -499,11 +502,6 @@ namespace Player
                 animator.SetBool("Dash", false);
                 currentDashTime = totalDashTime;
                 dashSpeed = initialDashSpeed;
-            }
-
-            if (isWall && isShifting)
-            {
-                animator.SetBool("Climb", true);
             }
 
             //Dash
