@@ -21,6 +21,7 @@ namespace Player
         public Transform camTransform;
         Vector3 originalPos;
         public Collider2D colliderCapsule;
+        public float spriteTimer = 0.12f;
 
         private Rigidbody2D _body;
 
@@ -38,10 +39,24 @@ namespace Player
             if (invulnerableCurrentTime < invulnerableTotalTime)
             {
                 invulnerableCurrentTime += Time.deltaTime;
+                SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
+                if (spriteTimer > 0)
+                {
+                    sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0f);
+                    spriteTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 255f);
+                    spriteTimer = 0.12f;
+                }
             }
             else
             {
                 canRecieveDmg = true;
+                SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
+                sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 255f);
+                spriteTimer = 0.12f;
             }
 
             if (shakeCamera)
@@ -51,6 +66,7 @@ namespace Player
                 {
                     camTransform.position += Random.insideUnitSphere * shakeAmount;
                     shakeDuration -= Time.deltaTime * decreaseFactor;
+
                 }
                 else
                 {

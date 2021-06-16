@@ -403,6 +403,7 @@ MonoBehaviour:
   decreaseFactor: 1
   camTransform: {fileID: 0}
   colliderCapsule: {fileID: 2246180990999022112}
+  spriteTimer: 0.12
 --- !u!95 &9191456027474838662
 Animator:
   serializedVersion: 3
@@ -616,6 +617,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab1dc1d7a32eca4cb995a5df52d7987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
   isGrounded: 0
   isTopWalled: 0
   isSpike: 0
