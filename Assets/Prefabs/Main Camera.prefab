@@ -1166,7 +1166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  smoothFactor: 3
+  smoothFactor: 2
   rightFactor: 30
   upFactor: 15
 --- !u!114 &6900414821933932693
