@@ -772,6 +772,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4198130426538139954, guid: abfe75f80b40efd4d9b6d43ab16f0220, type: 3}
+      propertyPath: speed
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4198130426538139956, guid: abfe75f80b40efd4d9b6d43ab16f0220, type: 3}
       propertyPath: m_Name
       value: pajaro 1
