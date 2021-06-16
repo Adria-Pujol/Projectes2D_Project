@@ -338,7 +338,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _body: {fileID: 0}
-  collectables: 0
   _collider2D: {fileID: 2246180990999022112}
   groundLayer:
     serializedVersion: 2
@@ -358,11 +357,9 @@ MonoBehaviour:
   slideSpeed: 200
   _isShooting: 0
   timerReset: 0.1
-  activeWeapon: 1
   hasSwapped: 0
   swapTime: 0
   totalSwapTime: 0.5
-  ammunition: 100
   timer: 0
   startTime: 0.2
   _isHitting: 0
@@ -394,7 +391,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8501d80ce38e6b6488f8033de4adb8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 7
   invulnerableTotalTime: 2.5
   invulnerableCurrentTime: 0
   canRecieveDmg: 0
@@ -452,7 +448,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bf883b5e55498284ca45e7fdaa9e81f9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 79354d08f484fee4bb037267f7cce0a9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -498,7 +494,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.8
       inSlope: 0
       outSlope: 0
       tangentMode: 0
