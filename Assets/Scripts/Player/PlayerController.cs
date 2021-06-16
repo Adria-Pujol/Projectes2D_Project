@@ -52,7 +52,7 @@ namespace Player
         public bool hasSwapped;
         public float swapTime;
         public float totalSwapTime;
-        public static int ammunition;
+        public static int ammunition = 100;
         public float timer;
         public float startTime;
         private bool _resetShooting = true;
@@ -114,7 +114,6 @@ namespace Player
             _wallChecker = transform.Find("WallChecker").GetComponent<WallChecker>();
             _weaponScript = gameObject.GetComponent<WeaponScript>();
             _body.gravityScale = shortJumpMult;
-            ammunition = 100;
         }
 
         private void FixedUpdate()
