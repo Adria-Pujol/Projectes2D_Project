@@ -6,20 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneControllerChargingScene : MonoBehaviour
 {
-    
-    private bool hasBeenFaded = false;
-    [SerializeField] private float timer = 1.0f;
-
-
-    private void OnTriggerEnter2D(Collider2D other)
+    [SerializeField] public Animator animator;
+    public void FadeOut()
     {
-        if (other.CompareTag("Player"))
-        {
-            XFadeFinished();
-        }
+        animator.SetTrigger("FadeOut");
     }
+    
 
-    void XFadeFinished()
+    public void XFadeFinished()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

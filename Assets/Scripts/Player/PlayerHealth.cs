@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -135,6 +136,8 @@ namespace Player
             {
                 gameObject.GetComponent<PlayerController>().enabled = true;
                 gameObject.GetComponent<PlayerController>().animator.SetBool("Die", false);
+                PlayerController.ammunition = 100;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 
                 health = 7f;
                 deadTimer = 1.5f;

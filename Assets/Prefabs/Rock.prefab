@@ -100,9 +100,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.033634186, y: 0}
   serializedVersion: 2
-  m_Radius: 0.825
+  m_Radius: 1.5313581
 --- !u!50 &442895330588861849
 Rigidbody2D:
   serializedVersion: 4
@@ -137,11 +137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDamage: 1
-  timeAlive: 5
-  timeAliveFromCollision: 0.3
   body: {fileID: 442895330588861849}
   rockAnim: {fileID: -8084336206053688573}
-  animTime: 0.4
+  animTime: 0.5
 --- !u!95 &-8084336206053688573
 Animator:
   serializedVersion: 3

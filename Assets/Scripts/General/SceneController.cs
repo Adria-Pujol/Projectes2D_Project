@@ -9,6 +9,7 @@ public class SceneController : MonoBehaviour
 {
     [SerializeField] private GameObject HUD;
     [SerializeField] public float currentScene;
+    [SerializeField] public Animator animator;
 
     public void Awake()
     {
@@ -29,12 +30,9 @@ public class SceneController : MonoBehaviour
         } 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void FadeOut()
     {
-        if (other.CompareTag("Player"))
-        {
-            XFadeFinished();
-        }
+        animator.SetTrigger("FadeOut");
     }
     
 
