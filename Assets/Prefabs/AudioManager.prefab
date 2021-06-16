@@ -52,7 +52,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MainMusic
     Clip: {fileID: 8300000, guid: 67fdb441b5dc60e4eaf196341cf25067, type: 3}
-    volume: 0.7
+    volume: 0.2
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -64,13 +64,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: GetHit
     Clip: {fileID: 8300000, guid: 63af0c01f527d2143b587baad67c7be8, type: 3}
-    volume: 0.1
+    volume: 0.7
     pitch: 1.5
     loop: 0
     source: {fileID: 0}
   - name: Collect
     Clip: {fileID: 8300000, guid: f5877c9d2f5b73947802b9ea2ce732b4, type: 3}
-    volume: 0.3
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
