@@ -144,13 +144,13 @@ namespace Player
             }
             else
             {
+                FindObjectOfType<audioManager>().Play("PlayerDeath");
                 gameObject.GetComponent<PlayerController>().animator.SetBool("Die", true);
                 gameObject.GetComponent<PlayerController>()._body.velocity = new Vector2(0, 0);
                 gameObject.GetComponent<PlayerController>().resetVariables();
                 gameObject.GetComponent<PlayerController>().enabled = false;
                 health = 0;
                 dead = true;
-                FindObjectOfType<audioManager>().Play("PlayerDeath");
             }
         }
 
