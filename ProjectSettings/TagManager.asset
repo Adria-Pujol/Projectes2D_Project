@@ -54,13 +54,13 @@ TagManager:
   - name: FondoCielo
     uniqueID: 1162755649
     locked: 0
-  - name: Background3
+  - name: Background -2
     uniqueID: 909408743
     locked: 0
-  - name: Background2
+  - name: Background -1
     uniqueID: 351760001
     locked: 0
-  - name: Background
+  - name: Background 0
     uniqueID: 2325404143
     locked: 0
   - name: Default
