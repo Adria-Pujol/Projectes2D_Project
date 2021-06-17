@@ -87,16 +87,16 @@ namespace Enemies
         {
 
             transform.position = transform.position + (speed * patrolVec * Time.fixedDeltaTime);
-            if (patrolVec.x >= 0 && _isFacingRight == true)
+            if (patrolVec.x >= 0 && _isFacingRight)
             {
                 Flip();
             }
-            if (patrolVec.x <= 0 && _isFacingRight == false)
+            if (patrolVec.x <= 0 && !_isFacingRight)
             {
                 Flip();
             }
 
-            if (timerPatrol >= 10)
+            if (timerPatrol >= 8)
             {
                 patrolVec.x = patrolVec.x * (-1);
                 timerPatrol = 0;
