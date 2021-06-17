@@ -38,6 +38,7 @@ namespace Enemies
 
         public void FixedUpdate()
         {
+            if (gameObject.GetComponent<Enemy>().dead) speed = 0;
 
             if (_player)
             {

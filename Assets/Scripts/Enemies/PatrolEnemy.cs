@@ -40,6 +40,7 @@ namespace Enemies
             //Checking if enemy is colliding to an Enemy
             isEnemy = _generalChecker.isEnemy;
 
+            if (gameObject.GetComponent<Enemy>().dead) speed = 0;
             if (_player)
             {
                 if (isWall || !isGround || isObject || isEnemy)

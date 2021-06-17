@@ -25,6 +25,7 @@ namespace Enemies
         private bool _isFacingRight = true;
         private Transform _player;
         private float distRotation;
+        public Animator animator;
 
         public float timeBetweenShoots;
 
@@ -53,8 +54,10 @@ namespace Enemies
             //Checking if enemy is colliding to an Enemy
             isEnemy = _generalChecker.isEnemy;
 
+            if (gameObject.GetComponent<Enemy>().dead) speed = 0;
             if (_player)
             {
+                animator.SetBool("isShooting", true);
                 if (isWall || !isGround || isObject || isEnemy)
                 {
                     Flip();
@@ -80,6 +83,7 @@ namespace Enemies
             }
             else
             {
+                animator.SetBool("isShooting", false);
                 Patrol();
             }
         }
