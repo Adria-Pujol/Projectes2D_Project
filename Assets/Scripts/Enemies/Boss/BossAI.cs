@@ -257,6 +257,7 @@ public class BossAI : MonoBehaviour
 
         var velocity = _body.velocity;
         velocity = isFacingRight ? new Vector2(_sprintSpeed, velocity.y) : new Vector2(-_sprintSpeed, velocity.y);
+        
         _body.velocity = velocity;
     }
 
@@ -295,6 +296,7 @@ public class BossAI : MonoBehaviour
     {
         _body.velocity = new Vector2(0, jumpSpeed);
         _body.gravityScale = multiplier;
+        FindObjectOfType<audioManager>().Play("Bark1");
     }
 
     private void Flip()
