@@ -973,6 +973,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushrooms (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988548, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988548, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988548, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.9504389
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988548, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.31091145
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 25.214493
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 18.517046
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_Intensity
+      value: 0.64
+      objectReference: {fileID: 0}
     - target: {fileID: 5629372318478980700, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 98.06926
@@ -7268,6 +7300,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushrooms
       objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988548, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988548, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988548, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.9313956
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988548, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.36400867
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 36.29219
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 24.426888
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_Intensity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 0.231
+      objectReference: {fileID: 0}
     - target: {fileID: 5629372318478980700, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 69.669266
@@ -10667,9 +10731,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f59f1508dca6f45aa424441291aabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   health: 5
   bullets: {fileID: 3560569161301933581, guid: d11d5260f43e12b4cba18cdfa51902d4, type: 3}
   dropBullets: 1
+  dead: 0
 --- !u!61 &2247494321233003755
 BoxCollider2D:
   m_ObjectHideFlags: 0
