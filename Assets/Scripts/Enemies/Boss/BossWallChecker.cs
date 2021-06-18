@@ -10,7 +10,10 @@ public class BossWallChecker : MonoBehaviour
     public bool isRightGround;
     private void OnTriggerStay2D(Collider2D collision)
     {
-        isWall = collision != null && ((1 << collision.gameObject.layer) & wallLayer) != 0;
+        if (collision.CompareTag("Wall"))
+        {
+            isWall = true;
+        }
         if (collision.CompareTag("Ground"))
         {
             isRightGround = true;
@@ -18,6 +21,7 @@ public class BossWallChecker : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        isWall = false;
         isWall = false;
         isRightGround = false;
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ public class BossHealth : MonoBehaviour
     public float health;
     public Slider slider;
     public GameObject canvas;
+    public GameObject player;
 
     public void FixedUpdate()
     {
@@ -37,6 +39,7 @@ public class BossHealth : MonoBehaviour
     public void Death()
     {
         canvas.transform.Find("FadeOut").GetComponent<FadeOutBoss>().FadeOut();
+        player.GetComponent<PlayerController>().maxSpeed = 0;
         DestroyAllRockObjects();
         DestroyAllBulletObjects();
         Destroy(gameObject);

@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using Weapons;
 using Random = UnityEngine.Random;
 
@@ -284,7 +285,8 @@ namespace Player
             if (isJumping)
             {
                 _hasJumped = true;
-                jumpVel = 70;
+                if(SceneManager.GetActiveScene().buildIndex == 5) jumpVel = 90;
+                if(SceneManager.GetActiveScene().buildIndex != 5) jumpVel = 70;
                 if (_body.velocity.y < 0)
                 {
                     animator.SetBool("Fall", true);
