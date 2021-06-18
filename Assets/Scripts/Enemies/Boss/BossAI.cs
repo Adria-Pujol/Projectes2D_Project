@@ -9,8 +9,8 @@ using Player;
 public class BossAI : MonoBehaviour
 {
     //General Stuff
-    [Header("General Settings")] [SerializeField]
-    private Transform player;
+    [Header("General Settings")] 
+    [SerializeField] private Animator animator;
     public Rigidbody2D _body;
     private BossGroundChecker _groundChecker;
     private BossRightGroundChecker _rightGroundChecker;
@@ -20,12 +20,9 @@ public class BossAI : MonoBehaviour
     public float timeBetweenSkills;
     public int number;
     public bool isDoingSkill = false;
-    public float tiredCooldown;
     public float totalTiredCooldown;
     public bool numberSelected = false;
-
-    //Idle State
-
+    
     //Movement State
     [Header("Movement")] [SerializeField] private float speed;
     [SerializeField] private float jumpSpeed;
@@ -80,7 +77,6 @@ public class BossAI : MonoBehaviour
         attack2Cooldown = attack2TotalCooldown;
         attack3Cooldown = attack3TotalCooldown;
         timeBetweenSkills = totalSkillTime;
-        tiredCooldown = totalTiredCooldown;
     }
 
     private void OnEnable()
@@ -105,11 +101,13 @@ public class BossAI : MonoBehaviour
         if (isEnrage)
         {
             attack2TotalCooldown = 3;
+            animator.SetBool("isEnrage", true);
             GetComponent<SpriteRenderer>().color = Color.red;
         }
         else
         {
             attack2TotalCooldown = 1;
+            animator.SetBool("isEnrage", false);
             GetComponent<SpriteRenderer>().color = Color.white;
         }
         
@@ -126,6 +124,8 @@ public class BossAI : MonoBehaviour
         }
         else
         {
+            animator.SetBool("isAttacking", false);
+            animator.SetBool("isAttacking1", false);
             MovementState();
             timeBetweenSkills -= 0.1f;
             attack1Cooldown = attack1TotalCooldown;
@@ -175,6 +175,7 @@ public class BossAI : MonoBehaviour
             if (attack1Cooldown > 0)
             {
                 Attack1State();
+                animator.SetBool("isAttacking1", true);
                 attack1Cooldown -= 0.1f;
             }
             else if (attack1Cooldown <= 0)
@@ -190,6 +191,7 @@ public class BossAI : MonoBehaviour
             {
                 _body.velocity = new Vector2(0, _body.velocity.y);
                 Attack2State();
+                animator.SetBool("isAttacking", true);
                 attack2Cooldown -= 0.1f;
             }
             else if (attack2Cooldown < 0)
@@ -206,11 +208,11 @@ public class BossAI : MonoBehaviour
             {
                 _body.velocity = new Vector2(0, _body.velocity.y);
                 Attack3State();
+                animator.SetBool("isAttacking", true);
                 attack3Cooldown -= 0.1f;
             }
             else if (attack3Cooldown < 0)
             {
-                
                 isDoingAttack3 = false;
                 isDoingSkill = false;
                 timeBetweenSkills = totalSkillTime;
@@ -274,21 +276,6 @@ public class BossAI : MonoBehaviour
         Vector2 randomPosition = new Vector2(Random.Range(shootingPoint.position.x - 7, shootingPoint.position.x + 7),
             Random.Range(shootingPoint.position.y - 7, shootingPoint.position.y + 7));
         BulletPooler.instance.SpawnFromPool("EnemyBullet", randomPosition, shootingPoint.rotation);
-    }
-    //Triggers
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player")) player = collision.gameObject.transform;
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player")) player = null;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player")) player = null;
     }
 
     //Auxiliar Functions

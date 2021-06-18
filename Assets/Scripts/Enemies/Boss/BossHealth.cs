@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,7 @@ public class BossHealth : MonoBehaviour
 {
     public float health;
     public Slider slider;
+    public GameObject canvas;
 
     public void FixedUpdate()
     {
@@ -34,7 +36,29 @@ public class BossHealth : MonoBehaviour
 
     public void Death()
     {
-        SceneManager.LoadScene(0);
+        canvas.transform.Find("FadeOut").GetComponent<FadeOutBoss>().FadeOut();
+        DestroyAllRockObjects();
+        DestroyAllBulletObjects();
         Destroy(gameObject);
+    }
+    
+    public void DestroyAllRockObjects()
+    {
+        GameObject[] GameObjects = GameObject.FindGameObjectsWithTag("Rock");
+ 
+        for (int i = 0; i < GameObjects.Length; i++)
+        {
+            Destroy(GameObjects[i]);
+        }
+    }
+    
+    public void DestroyAllBulletObjects()
+    {
+        GameObject[] GameObjects = GameObject.FindGameObjectsWithTag("EnemyBullet");
+ 
+        for (int i = 0; i < GameObjects.Length; i++)
+        {
+            Destroy(GameObjects[i]);
+        }
     }
 }
