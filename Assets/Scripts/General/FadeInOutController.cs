@@ -14,6 +14,7 @@ public class FadeInOutController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            other.transform.GetComponent<PlayerController>().maxSpeed = 0;
             m_Event.Invoke();
         }
     }
