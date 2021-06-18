@@ -18,6 +18,13 @@ namespace Enemies
 
         private void FixedUpdate()
         {
+            if (gameObject.GetComponent<Enemy>().dead)
+            {
+                BoxCollider2D collider = GetComponent<BoxCollider2D>();
+                collider.enabled = false;
+                Rigidbody2D _body = GetComponent<Rigidbody2D>();
+                _body.gravityScale = 0;
+            }
             if (timer < 0)
             {
                 Shoot();

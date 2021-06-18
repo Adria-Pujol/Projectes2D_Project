@@ -147,10 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f59f1508dca6f45aa424441291aabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 8117058656171401385}
   health: 5
   bullets: {fileID: 3560569161301933581, guid: d11d5260f43e12b4cba18cdfa51902d4, type: 3}
   dropBullets: 0
+  dead: 0
 --- !u!114 &4387036830735832738
 MonoBehaviour:
   m_ObjectHideFlags: 0

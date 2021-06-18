@@ -119,7 +119,7 @@ namespace Player
         private void FixedUpdate()
         {
             //Checking if player is in Ground
-            isGround = _groundChecker1.isGrounded;
+            isGround = _groundChecker1.isGrounded || _groundChecker.isTopWalled;
             //Checking if player is in TopWall
             _isTopWall = _groundChecker.isTopWalled;
             //Checking if player is in Wall

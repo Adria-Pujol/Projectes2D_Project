@@ -2733,9 +2733,65 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988548, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988548, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988548, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.97353226
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988548, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.22854967
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988548, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988548, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.48
+      objectReference: {fileID: 0}
     - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
       propertyPath: m_Intensity
-      value: 0.4
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_PointLightInnerAngle
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_PointLightOuterAngle
+      value: 104.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 27.21724
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 20.050888
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 0.469
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7297762
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.20425417
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935225146526988551, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8490566
       objectReference: {fileID: 0}
     - target: {fileID: 1935225146542852116, guid: 80dfecdbad39c9945be79562ea0c382b, type: 3}
       propertyPath: m_SortingLayerID
@@ -12107,7 +12163,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.30754465, y: -0.20492339}
+  m_Offset: {x: -0.14408582, y: -0.20492339}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12118,7 +12174,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.1217365, y: 1.5112641}
+  m_Size: {x: 2.4486542, y: 1.5112641}
   m_EdgeRadius: 0
 --- !u!23 &1364410305
 MeshRenderer:
