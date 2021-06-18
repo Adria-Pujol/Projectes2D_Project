@@ -131,6 +131,7 @@ namespace Player
             //Checking if player is in Object;
             isInObject = _groundChecker1.isInObject;
 
+            if (isGround && _movInputCtx == 0) animator.SetFloat("Walk", 0);
             //Movement
             if (isRightGround && !isWall && _movInputCtx != 0 && !isInObject)
             {
@@ -283,6 +284,7 @@ namespace Player
             if (isJumping)
             {
                 _hasJumped = true;
+                jumpVel = 70;
                 if (_body.velocity.y < 0)
                 {
                     animator.SetBool("Fall", true);
@@ -508,6 +510,7 @@ namespace Player
             if (isGround && _isDashing)
             {
                 animator.SetBool("Dash", true);
+                jumpVel = 0;
                 _collider2D.size = new Vector2(6.2f, 2.6f);
                 _collider2D.offset = new Vector2(0.32f, -1.3f);
                 _collider2D.direction = CapsuleDirection2D.Horizontal;
