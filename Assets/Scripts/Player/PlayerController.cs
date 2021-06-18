@@ -25,7 +25,7 @@ namespace Player
         [Header("Movement")] 
         public bool isFacingRight = true;
         public float _movInputCtx;
-        [SerializeField] private float maxSpeed;
+        [SerializeField] public float maxSpeed;
         private bool _isTopWall;
         
         [Header("Jumping")] 

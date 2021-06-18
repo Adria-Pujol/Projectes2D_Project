@@ -17,6 +17,8 @@ TagManager:
   - EyesColor
   - Dialog
   - Boss
+  - Rock
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

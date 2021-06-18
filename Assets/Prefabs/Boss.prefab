@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 253913334759297104}
   - component: {fileID: 1023881073943422617}
   - component: {fileID: 1890083180512894812}
+  - component: {fileID: 922351890268658442}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6642691135006647050, guid: c5b72c495e935954689975d231304167, type: 3}
+  m_Sprite: {fileID: 5082049558168183581, guid: 1316851020f4efe4385cb054ef82dc37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,14 +127,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f866c0eba495e7d46938f949bfef8a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  animator: {fileID: 922351890268658442}
   _body: {fileID: 0}
   isFacingRight: 0
   totalSkillTime: 30
   timeBetweenSkills: 0
   number: 0
   isDoingSkill: 0
-  tiredCooldown: 0
   totalTiredCooldown: 1
   numberSelected: 0
   speed: 70
@@ -293,6 +293,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &922351890268658442
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667185510697509104}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eb03fe8900058ed46ae91dbc0c700570, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1667185510751985895
 GameObject:
   m_ObjectHideFlags: 0
